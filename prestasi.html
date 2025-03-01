@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prestasi - TK DHARMA WANITA</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .prestasi-section {
+        padding: 70px 0;
+        background-color: #f8f9fa;
+      }
+      
+      .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+      
+      .section-header:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 4px;
+        background-color: var(--secondary);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+      
+      .section-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 50px;
+      }
+      
+      .section-intro p {
+        color: #555;
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+      
+      .filter-btn {
+        padding: 10px 20px;
+        background-color: white;
+        border: 2px solid var(--primary);
+        border-radius: 30px;
+        color: var(--primary);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .filter-btn.active, .filter-btn:hover {
+        background-color: var(--primary);
+        color: white;
+      }
+      
+      .prestasi-container {
+        max-width: 1000px;
+        margin: 0 auto 50px;
+      }
+      
+      .prestasi-item {
+        display: flex;
+        background-color: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+      }
+      
+      .prestasi-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+      
+      .prestasi-image {
+        width: 300px;
+        flex-shrink: 0;
+      }
+      
+      .prestasi-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .prestasi-content {
+        padding: 25px;
+        flex-grow: 1;
+        position: relative;
+      }
+      
+      .prestasi-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--secondary);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      
+      .prestasi-date {
+        font-size: 0.85rem;
+        color: #777;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      
+      .prestasi-date i {
+        margin-right: 5px;
+        color: var(--primary);
+      }
+      
+      .prestasi-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+      
+      .prestasi-desc {
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+      
+      .prestasi-meta {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+      }
+      
+      .prestasi-location,
+      .prestasi-participants {
+        display: flex;
+        align-items: center;
+        color: #777;
+        font-size: 0.9rem;
+      }
+      
+      .prestasi-location i,
+      .prestasi-participants i {
+        margin-right: 5px;
+        color: var(--primary);
+      }
+      
+      .achievement-highlight {
+        background-color: rgba(var(--primary-rgb), 0.1);
+        border-left: 4px solid var(--primary);
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 5px 5px 0;
+      }
+      
+      .achievement-highlight h4 {
+        color: var(--primary);
+        margin-bottom: 5px;
+      }
+      
+      .achievement-highlight p {
+        margin: 0;
+        color: #555;
+      }
+      
+      .prestasi-stats {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1000px;
+        margin: 0 auto 50px;
+        flex-wrap: wrap;
+      }
+      
+      .stat-card {
+        background-color: white;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        flex: 1;
+        min-width: 200px;
+        margin: 0 10px 20px;
+      }
+      
+      .stat-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+      
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--secondary);
+        margin-bottom: 10px;
+      }
+      
+      .stat-title {
+        color: #555;
+        font-size: 1rem;
+      }
+      
+      .timeline {
+        max-width: 1000px;
+        margin: 50px auto;
+        position: relative;
+      }
+      
+      .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background-color: var(--primary);
+      }
+      
+      .timeline-item {
+        position: relative;
+        margin-bottom: 50px;
+      }
+      
+      .timeline-content {
+        position: relative;
+        width: calc(50% - 40px);
+        padding: 20px;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: auto;
+      }
+      
+      .timeline-item:nth-child(even) .timeline-content::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        right: -40px;
+        width: 40px;
+        height: 4px;
+        background-color: var(--primary);
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: -40px;
+        width: 40px;
+        height: 4px;
+        background-color: var(--primary);
+      }
+      
+      .timeline-date {
+        position: absolute;
+        top: 0;
+        width: 80px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--secondary);
+        color: white;
+        border-radius: 30px;
+        font-weight: 600;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-date {
+        left: -120px;
+      }
+      
+      .timeline-item:nth-child(even) .timeline-date {
+        right: -120px;
+      }
+      
+      .timeline-dot {
+        position: absolute;
+        top: 20px;
+        width: 20px;
+        height: 20px;
+        background-color: var(--secondary);
+        border-radius: 50%;
+        border: 4px solid white;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+      }
+      
+      @media (max-width: 992px) {
+        .prestasi-item {
+          flex-direction: column;
+        }
+        
+        .prestasi-image {
+          width: 100%;
+          height: 200px;
+        }
+        
+        .timeline::before {
+          left: 30px;
+        }
+        
+        .timeline-content {
+          width: calc(100% - 80px);
+          margin-left: 80px !important;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before,
+        .timeline-item:nth-child(even) .timeline-content::before {
+          left: -40px;
+          right: auto;
+        }
+        
+        .timeline-dot {
+          left: 30px;
+          transform: none;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-date,
+        .timeline-item:nth-child(even) .timeline-date {
+          left: 80px;
+          right: auto;
+          top: -40px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .filter-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .filter-btn {
+          width: 80%;
+        }
+        
+        .prestasi-meta {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-top">
+          <div class="logo">
+            <img src="/img/logo.png" alt="Logo TK Dharma Wanita" />
+            <div class="logo-text">
+              <h1>TK DHARMA WANITA RANG PERANG LAOK</h1>
+              <p>Taman Kanak - Kanak Negeri</p>
+            </div>
+          </div>
+          <div class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-container" id="navContainer">
+            <nav>
+                <ul>
+                  <li>
+                    <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+                  </li>
+                  <li>
+                    <a href="profil.html"><i class="fas fa-school"></i> Profil</a>
+                  </li>
+                  <li>
+                    <a href="profil-guru.html"><i class="fas fa-user-tie"></i> Profil Guru</a>
+                  </li>
+                  <li>
+                    <a href="fasilitas.html"><i class="fas fa-desktop"></i> Fasilitas</a>
+                  </li>
+                  <li class="active">
+                    <a href="prestasi.html"><i class="fas fa-trophy"></i> Prestasi</a>
+                  </li>
+                  <li>
+                    <a href="pengumuman.html"><i class="fas fa-bullhorn"></i> Pengumuman</a>
+                  </li>
+                  <li >
+                    <a href="#"><i class="fas fa-images"></i> Galeri</a>
+                  </li>
+                  <li>
+                    <a href="kontak.html"><i class="fas fa-phone"></i> Kontak</a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero" style="height: 300px;">
+      <img src="img/HERO.jpg" alt="Foto Sekolah" />
+      <div class="hero-content">
+        <h2>Prestasi</h2>
+        <p>Berbagai prestasi yang telah diraih oleh siswa TK Dharma Wanita Rang Perang Laok</p>
+      </div>
+    </div>
+
+    <section class="prestasi-section">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="section-header">Prestasi TK Dharma Wanita</h2>
+          <p>TK Dharma Wanita Rang Perang Laok terus berkomitmen untuk mengembangkan bakat dan potensi siswa-siswi melalui berbagai kegiatan dan lomba. Berikut adalah berbagai prestasi yang telah diraih oleh siswa-siswi kami di tingkat kecamatan, kabupaten, provinsi hingga nasional.</p>
+        </div>
+
+        <div class="prestasi-stats">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-medal"></i>
+            </div>
+            <div class="stat-number">35+</div>
+            <div class="stat-title">Total Prestasi</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div class="stat-number">12</div>
+            <div class="stat-title">Juara 1</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <div class="stat-number">8</div>
+            <div class="stat-title">Tingkat Provinsi</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="stat-number">3</div>
+            <div class="stat-title">Tingkat Nasional</div>
+          </div>
+        </div>
+
+        <div class="filter-buttons">
+          <button class="filter-btn active">Semua</button>
+          <button class="filter-btn">Lomba Mewarnai</button>
+          <button class="filter-btn">Lomba Menari</button>
+          <button class="filter-btn">Lomba Menyanyi</button>
+          <button class="filter-btn">Festival Anak</button>
+        </div>
+
+        <div class="prestasi-container">
+          <!-- Prestasi 1 -->
+          <div class="prestasi-item">
+            <div class="prestasi-image">
+              <img src="/img/HERO.jpg" alt="Juara Lomba Mewarnai" />
+            </div>
+            <div class="prestasi-content">
+              <span class="prestasi-badge">Lomba Mewarnai</span>
+              <div class="prestasi-date">
+                <i class="far fa-calendar-alt"></i> 15 Januari 2024
+              </div>
+              <h3 class="prestasi-title">Juara 1 Lomba Mewarnai Tingkat Kabupaten</h3>
+              <p class="prestasi-desc">Adik Zahra Almeera berhasil meraih juara 1 dalam lomba mewarnai tingkat Kabupaten Sampang yang diselenggarakan oleh Dinas Pendidikan Kabupaten Sampang. Lomba ini diikuti oleh puluhan siswa TK dari seluruh Kabupaten Sampang.</p>
+              
+              <div class="achievement-highlight">
+                <h4>Highlight Prestasi</h4>
+                <p>Karya Zahra mendapat pujian dari juri karena kreativitas, kerapian, dan keunikan pemilihan warna yang mencerminkan tema "Alam Indonesia".</p>
+              </div>
+              
+              <div class="prestasi-meta">
+                <div class="prestasi-location">
+                  <i class="fas fa-map-marker-alt"></i> Gedung Sasana Praja, Sampang
+                </div>
+                <div class="prestasi-participants">
+                  <i class="fas fa-users"></i> Diikuti 48 peserta
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Prestasi 2 -->
+          <div class="prestasi-item">
+            <div class="prestasi-image">
+              <img src="/img/HERO.jpg" alt="Juara Festival Tari" />
+            </div>
+            <div class="prestasi-content">
+              <span class="prestasi-badge">Lomba Menari</span>
+              <div class="prestasi-date">
+                <i class="far fa-calendar-alt"></i> 20 November 2024
+              </div>
+              <h3 class="prestasi-title">Juara 2 Festival Tari Tradisional Tingkat Provinsi</h3>
+              <p class="prestasi-desc">Tim tari TK Dharma Wanita Rang Perang Laok berhasil meraih juara 2 dalam Festival Tari Tradisional Tingkat Provinsi Jawa Timur yang diselenggarakan di Surabaya. Tim tari yang terdiri dari 6 siswa menampilkan tarian tradisional Madura dengan kostum dan koreografi yang memukau para juri.</p>
+              
+              <div class="achievement-highlight">
+                <h4>Highlight Prestasi</h4>
+                <p>Tim tari mendapat nilai tertinggi untuk kategori kesesuaian gerakan dengan irama musik dan ekspresi dalam membawakan tarian.</p>
+              </div>
+              
+              <div class="prestasi-meta">
+                <div class="prestasi-location">
+                  <i class="fas fa-map-marker-alt"></i> Taman Budaya Jawa Timur, Surabaya
+                </div>
+                <div class="prestasi-participants">
+                  <i class="fas fa-users"></i> Diikuti 25 tim
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Prestasi 3 -->
+          <div class="prestasi-item">
+            <div class="prestasi-image">
+              <img src="/img/HERO.jpg" alt="Juara Menyanyi" />
+            </div>
+            <div class="prestasi-content">
+              <span class="prestasi-badge">Lomba Menyanyi</span>
+              <div class="prestasi-date">
+                <i class="far fa-calendar-alt"></i> 5 Oktober 2024
+              </div>
+              <h3 class="prestasi-title">Juara 1 Lomba Menyanyi Lagu Daerah</h3>
+              <p class="prestasi-desc">Adik Ahmad Faiz berhasil meraih juara 1 dalam Lomba Menyanyi Lagu Daerah yang diselenggarakan oleh Radio Suara Sampang. Ahmad membawakan lagu daerah Madura "Tandhu' Majeng" dengan suara merdu dan penghayatan yang luar biasa sehingga mampu mengalahkan 20 peserta lainnya.</p>
+              
+              <div class="achievement-highlight">
+                <h4>Highlight Prestasi</h4>
+                <p>Ahmad mendapat standing ovation dari para juri dan penonton karena kemampuannya menguasai nada tinggi dengan sempurna meskipun usianya masih 6 tahun.</p>
+              </div>
+              
+              <div class="prestasi-meta">
+                <div class="prestasi-location">
+                  <i class="fas fa-map-marker-alt"></i> Studio Radio Suara Sampang
+                </div>
+                <div class="prestasi-participants">
+                  <i class="fas fa-users"></i> Diikuti 21 peserta
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Prestasi 4 -->
+          <div class="prestasi-item">
+            <div class="prestasi-image">
+              <img src="/img/HERO.jpg" alt="Festival Anak Nusantara" />
+            </div>
+            <div class="prestasi-content">
+              <span class="prestasi-badge">Festival Anak</span>
+              <div class="prestasi-date">
+                <i class="far fa-calendar-alt"></i> 17 Agustus 2024
+              </div>
+              <h3 class="prestasi-title">Finalis 10 Besar Festival Anak Nusantara</h3>
+              <p class="prestasi-desc">TK Dharma Wanita Rang Perang Laok berhasil masuk dalam 10 besar Finalis Festival Anak Nusantara yang diselenggarakan oleh Kementerian Pendidikan dan Kebudayaan di Jakarta. Siswa-siswi TK Dharma Wanita menampilkan pertunjukan kolaborasi seni yang menggabungkan tarian, nyanyian, dan teater yang mengangkat kearifan lokal Madura.</p>
+              
+              <div class="achievement-highlight">
+                <h4>Highlight Prestasi</h4>
+                <p>Pertunjukan kolaborasi seni dari TK Dharma Wanita mendapat apresiasi khusus dari juri nasional karena berhasil memadukan unsur tradisional dan modern dengan pesan pendidikan karakter.</p>
+              </div>
+              
+              <div class="prestasi-meta">
+                <div class="prestasi-location">
+                  <i class="fas fa-map-marker-alt"></i> Istora Senayan, Jakarta
+                </div>
+                <div class="prestasi-participants">
+                  <i class="fas fa-users"></i> Diikuti 150 sekolah se-Indonesia
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <h3 class="section-header" style="margin-top: 70px;">Timeline Prestasi</h3>
+        
+        <div class="timeline">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-date">2025</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Juara 1 Lomba Mewarnai</h3>
+              <p>Zahra Almeera memenangkan lomba mewarnai tingkat kabupaten yang diselenggarakan oleh Dinas Pendidikan Kabupaten Sampang.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-date">2024</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Juara 2 Festival Tari Tradisional</h3>
+              <p>Tim tari TK Dharma Wanita meraih prestasi juara 2 dalam Festival Tari Tradisional Tingkat Provinsi Jawa Timur.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-date">2024</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Juara 1 Lomba Menyanyi</h3>
+              <p>Ahmad Faiz menjadi juara 1 Lomba Menyanyi Lagu Daerah yang diselenggarakan oleh Radio Suara Sampang.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item">
+            <div class="timeline-date">2024</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>10 Besar Festival Anak Nusantara</h3>
+              <p>TK Dharma Wanita masuk 10 besar Finalis Festival Anak Nusantara yang diselenggarakan oleh Kemendikbud di Jakarta.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 5 -->
+          <div class="timeline-item">
+            <div class="timeline-date">2023</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Juara 3 Lomba Bercerita</h3>
+              <p>Anindya Diva meraih juara 3 dalam Lomba Bercerita Tingkat Kecamatan yang diselenggarakan oleh Perpustakaan Daerah.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="#" class="btn">Lihat Semua Prestasi <i class="fas fa-trophy"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Tentang Kami</h3>
+            <p>TK Dharma Wanita Rang Perang Laok adalah lembaga pendidikan anak usia dini yang berkomitmen memberikan pendidikan berkualitas bagi generasi penerus bangsa.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Menu Utama</h3>
+            <ul>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Beranda</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Profil</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Profil Guru</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Fasilitas</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Prestasi</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Galeri</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Kontak</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Informasi</h3>
+            <ul>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Jadwal Kegiatan</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Pengumuman</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Pendaftaran</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Berita Terbaru</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Kontak Kami</h3>
+            <div class="contact-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Alamat</h4>
+                <p>Desa Rang Perang Laok, Kec. Sampang, Kab. Sampang, Jawa Timur</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Telepon</h4>
+                <p>+62 xxx-xxxx-xxxx</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>tkdharmawanitarpl@example.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 TK Dharma Wanita Rang Perang Laok. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#" class="back-to-top active"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+      // Mobile Navigation Toggle
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navContainer = document.getElementById('navContainer');
+      
+      mobileToggle.addEventListener('click', () => {
+        navContainer.classList.toggle('active');
+      });
+      
+      // Back to Top Button
+      const backToTop = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('active');
+        } else {
+          backToTop.classList.remove('active');
+        }
+      });
+      
+      // Filter Buttons
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          // Here you would add filtering functionality
+          // This is just a UI demo without the actual filtering
+        });
+      });
+    </script>
+  </body>
+</html>
+
+

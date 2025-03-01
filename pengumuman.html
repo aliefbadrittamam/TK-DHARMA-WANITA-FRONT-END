@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengumuman - TK DHARMA WANITA</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .announcements-section {
+        padding: 70px 0;
+        background-color: #f8f9fa;
+      }
+      
+      .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+      
+      .section-header:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 4px;
+        background-color: var(--secondary);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+      
+      .section-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 50px;
+      }
+      
+      .section-intro p {
+        color: #555;
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      
+      .announcements-container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+      
+      .announcement-card {
+        background-color: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .announcement-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+      
+      .announcement-header {
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .announcement-category {
+        background-color: var(--secondary);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      
+      .announcement-date {
+        display: flex;
+        align-items: center;
+        color: #777;
+        font-size: 0.9rem;
+      }
+      
+      .announcement-date i {
+        margin-right: 5px;
+        color: var(--primary);
+      }
+      
+      .announcement-body {
+        padding: 20px;
+      }
+      
+      .announcement-title {
+        font-size: 1.4rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+      
+      .announcement-content {
+        color: #555;
+        margin-bottom: 20px;
+        line-height: 1.7;
+      }
+      
+      .announcement-footer {
+        padding: 15px 20px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .announcement-details {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .announcement-author {
+        display: flex;
+        align-items: center;
+        color: #555;
+        font-size: 0.9rem;
+      }
+      
+      .announcement-author i {
+        margin-right: 5px;
+        color: var(--primary);
+      }
+      
+      .read-more {
+        display: inline-block;
+        padding: 8px 20px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      
+      .read-more:hover {
+        background-color: var(--secondary);
+        transform: translateY(-2px);
+      }
+      
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+      
+      .filter-btn {
+        padding: 10px 20px;
+        background-color: white;
+        border: 2px solid var(--primary);
+        border-radius: 30px;
+        color: var(--primary);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .filter-btn.active, .filter-btn:hover {
+        background-color: var(--primary);
+        color: white;
+      }
+      
+      .important-announcement {
+        position: relative;
+        border-left: 5px solid #ff5252;
+      }
+      
+      .important-label {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #ff5252;
+        color: white;
+        padding: 5px 15px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border-radius: 0 0 0 15px;
+      }
+      
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 40px;
+      }
+      
+      .page-link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: white;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      
+      .page-link.active, .page-link:hover {
+        background-color: var(--primary);
+        color: white;
+      }
+      
+      .search-box {
+        max-width: 500px;
+        margin: 0 auto 40px;
+        position: relative;
+      }
+      
+      .search-box input {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 30px;
+        border: 2px solid #ddd;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        padding-right: 50px;
+      }
+      
+      .search-box input:focus {
+        border-color: var(--primary);
+        outline: none;
+      }
+      
+      .search-box button {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        background-color: var(--primary);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .search-box button:hover {
+        background-color: var(--secondary);
+      }
+      
+      @media (max-width: 768px) {
+        .announcement-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        
+        .announcement-footer {
+          flex-direction: column;
+          gap: 15px;
+        }
+        
+        .filter-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .filter-btn {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-top">
+          <div class="logo">
+            <img src="/img/logo.png" alt="Logo TK Dharma Wanita" />
+            <div class="logo-text">
+              <h1>TK DHARMA WANITA RANG PERANG LAOK</h1>
+              <p>Taman Kanak - Kanak Negeri</p>
+            </div>
+          </div>
+          <div class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-container" id="navContainer">
+            <nav>
+                <ul>
+                  <li>
+                    <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+                  </li>
+                  <li>
+                    <a href="profil.html"><i class="fas fa-school"></i> Profil</a>
+                  </li>
+                  <li>
+                    <a href="profil-guru.html"><i class="fas fa-user-tie"></i> Profil Guru</a>
+                  </li>
+                  <li>
+                    <a href="fasilitas.html"><i class="fas fa-desktop"></i> Fasilitas</a>
+                  </li>
+                  <li>
+                    <a href="prestasi.html"><i class="fas fa-trophy"></i> Prestasi</a>
+                  </li>
+                  <li class="active"> 
+                    <a href="pengumuman.html"><i class="fas fa-bullhorn"></i> Pengumuman</a>
+                  </li>
+                  <li >
+                    <a href="galeri.html"><i class="fas fa-images"></i> Galeri</a>
+                  </li>
+                  <li>
+                    <a href="kontak.html"><i class="fas fa-phone"></i> Kontak</a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero" style="height: 300px;">
+      <img src="img/HERO.jpg" alt="Foto Sekolah" />
+      <div class="hero-content">
+        <h2>Pengumuman</h2>
+        <p>Informasi terbaru dari TK Dharma Wanita Rang Perang Laok</p>
+      </div>
+    </div>
+
+    <section class="announcements-section">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="section-header">Pengumuman Terbaru</h2>
+          <p>Dapatkan informasi terbaru tentang kegiatan, acara, prestasi, dan informasi penting lainnya terkait TK Dharma Wanita Rang Perang Laok. Halaman ini akan diperbarui secara berkala untuk memastikan Anda selalu mendapatkan informasi terkini.</p>
+        </div>
+
+        <div class="search-box">
+          <input type="text" placeholder="Cari pengumuman..." />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+
+        <div class="filter-buttons">
+          <button class="filter-btn active">Semua</button>
+          <button class="filter-btn">Akademik</button>
+          <button class="filter-btn">Kegiatan</button>
+          <button class="filter-btn">Pendaftaran</button>
+          <button class="filter-btn">Informasi Umum</button>
+        </div>
+
+        <div class="announcements-container">
+          <!-- Pengumuman Penting -->
+          <div class="announcement-card important-announcement">
+            <div class="important-label">Penting</div>
+            <div class="announcement-header">
+              <span class="announcement-category">Pendaftaran</span>
+              <span class="announcement-date"><i class="far fa-calendar-alt"></i> 15 Februari 2025</span>
+            </div>
+            <div class="announcement-body">
+              <h3 class="announcement-title">Pembukaan Pendaftaran Siswa Baru Tahun Ajaran 2025/2026</h3>
+              <p class="announcement-content">TK Dharma Wanita Rang Perang Laok dengan ini mengumumkan bahwa pendaftaran siswa baru untuk tahun ajaran 2025/2026 telah dibuka. Pendaftaran dibuka mulai tanggal 1 Maret 2025 hingga 30 April 2025. Formulir pendaftaran dapat diambil di sekolah atau diunduh melalui website kami. Untuk informasi lebih lanjut, silakan menghubungi bagian administrasi sekolah.</p>
+            </div>
+            <div class="announcement-footer">
+              <div class="announcement-details">
+                <span class="announcement-author"><i class="fas fa-user"></i> Admin Sekolah</span>
+              </div>
+              <a href="#" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Pengumuman 2 -->
+          <div class="announcement-card">
+            <div class="announcement-header">
+              <span class="announcement-category">Kegiatan</span>
+              <span class="announcement-date"><i class="far fa-calendar-alt"></i> 10 Februari 2025</span>
+            </div>
+            <div class="announcement-body">
+              <h3 class="announcement-title">Perayaan Hari Kartini 21 April 2025</h3>
+              <p class="announcement-content">Dalam rangka memperingati Hari Kartini, TK Dharma Wanita Rang Perang Laok akan mengadakan berbagai kegiatan pada tanggal 21 April 2025. Kegiatan meliputi lomba busana tradisional, pentas seni budaya daerah, dan lomba mewarnai. Semua siswa diharapkan hadir dengan mengenakan pakaian adat tradisional. Orang tua/wali murid juga diundang untuk menghadiri acara ini.</p>
+            </div>
+            <div class="announcement-footer">
+              <div class="announcement-details">
+                <span class="announcement-author"><i class="fas fa-user"></i> Koordinator Acara</span>
+              </div>
+              <a href="#" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Pengumuman 3 -->
+          <div class="announcement-card">
+            <div class="announcement-header">
+              <span class="announcement-category">Akademik</span>
+              <span class="announcement-date"><i class="far fa-calendar-alt"></i> 5 Februari 2025</span>
+            </div>
+            <div class="announcement-body">
+              <h3 class="announcement-title">Jadwal Kegiatan Semester Genap 2024/2025</h3>
+              <p class="announcement-content">Berikut ini kami sampaikan jadwal kegiatan untuk semester genap tahun ajaran 2024/2025. Jadwal meliputi kegiatan pembelajaran, ujian tengah semester, ujian akhir semester, dan kegiatan ekstrakurikuler. Orang tua/wali murid dimohon untuk memperhatikan jadwal ini agar dapat mempersiapkan anak-anak dengan baik.</p>
+            </div>
+            <div class="announcement-footer">
+              <div class="announcement-details">
+                <span class="announcement-author"><i class="fas fa-user"></i> Kepala Sekolah</span>
+              </div>
+              <a href="#" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Pengumuman 4 -->
+          <div class="announcement-card">
+            <div class="announcement-header">
+              <span class="announcement-category">Informasi Umum</span>
+              <span class="announcement-date"><i class="far fa-calendar-alt"></i> 28 Januari 2025</span>
+            </div>
+            <div class="announcement-body">
+              <h3 class="announcement-title">Pembayaran SPP Bulan Februari 2025</h3>
+              <p class="announcement-content">Diberitahukan kepada seluruh orang tua/wali murid bahwa pembayaran SPP untuk bulan Februari 2025 dapat dilakukan mulai tanggal 1-10 Februari 2025. Pembayaran dapat dilakukan secara langsung di bagian administrasi sekolah atau melalui transfer bank. Untuk pembayaran melalui transfer, harap mencantumkan nama siswa dan kelas pada berita transfer.</p>
+            </div>
+            <div class="announcement-footer">
+              <div class="announcement-details">
+                <span class="announcement-author"><i class="fas fa-user"></i> Bagian Keuangan</span>
+              </div>
+              <a href="#" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Pengumuman 5 -->
+          <div class="announcement-card">
+            <div class="announcement-header">
+              <span class="announcement-category">Kegiatan</span>
+              <span class="announcement-date"><i class="far fa-calendar-alt"></i> 20 Januari 2025</span>
+            </div>
+            <div class="announcement-body">
+              <h3 class="announcement-title">Kunjungan Edukasi ke Museum</h3>
+              <p class="announcement-content">TK Dharma Wanita Rang Perang Laok akan mengadakan kunjungan edukasi ke Museum Mpu Tantular pada tanggal 15 Maret 2025. Kegiatan ini bertujuan untuk mengenalkan siswa pada sejarah dan budaya lokal. Biaya pendaftaran sebesar Rp 50.000 per siswa yang mencakup transportasi, tiket masuk, dan makan siang. Pendaftaran dapat dilakukan di bagian administrasi sekolah paling lambat 28 Februari 2025.</p>
+            </div>
+            <div class="announcement-footer">
+              <div class="announcement-details">
+                <span class="announcement-author"><i class="fas fa-user"></i> Koordinator Kegiatan</span>
+              </div>
+              <a href="#" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pagination">
+          <a href="#" class="page-link active">1</a>
+          <a href="#" class="page-link">2</a>
+          <a href="#" class="page-link">3</a>
+          <a href="#" class="page-link"><i class="fas fa-angle-right"></i></a>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="#" class="btn">Arsip Pengumuman <i class="fas fa-archive"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Tentang Kami</h3>
+            <p>TK Dharma Wanita Rang Perang Laok adalah lembaga pendidikan anak usia dini yang berkomitmen memberikan pendidikan berkualitas bagi generasi penerus bangsa.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Menu Utama</h3>
+            <ul>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Beranda</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Profil</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Profil Guru</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Fasilitas</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Prestasi</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Galeri</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Kontak</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Informasi</h3>
+            <ul>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Jadwal Kegiatan</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Pengumuman</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Pendaftaran</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Berita Terbaru</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Kontak Kami</h3>
+            <div class="contact-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Alamat</h4>
+                <p>Desa Rang Perang Laok, Kec. Sampang, Kab. Sampang, Jawa Timur</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Telepon</h4>
+                <p>+62 xxx-xxxx-xxxx</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>tkdharmawanitarpl@example.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 TK Dharma Wanita Rang Perang Laok. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#" class="back-to-top active"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+      // Mobile Navigation Toggle
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navContainer = document.getElementById('navContainer');
+      
+      mobileToggle.addEventListener('click', () => {
+        navContainer.classList.toggle('active');
+      });
+      
+      // Back to Top Button
+      const backToTop = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('active');
+        } else {
+          backToTop.classList.remove('active');
+        }
+      });
+      
+      // Filter Buttons
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          // Here you would add filtering functionality
+          // This is just a UI demo without the actual filtering
+        });
+      });
+    </script>
+  </body>
+</html>

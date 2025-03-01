@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak - TK DHARMA WANITA</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .contact-section {
+        padding: 70px 0;
+        background-color: #f8f9fa;
+      }
+      
+      .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+      
+      .section-header:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 4px;
+        background-color: var(--secondary);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+      
+      .section-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 50px;
+      }
+      
+      .section-intro p {
+        color: #555;
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        margin-bottom: 50px;
+      }
+      
+      .contact-info-box {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        transition: all 0.3s ease;
+      }
+      
+      .contact-info-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+      
+      .contact-info-title {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 15px;
+      }
+      
+      .contact-info-title:after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: var(--secondary);
+        bottom: 0;
+        left: 0;
+        border-radius: 2px;
+      }
+      
+      .contact-item {
+        display: flex;
+        margin-bottom: 25px;
+      }
+      
+      .contact-icon {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-right: 15px;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(var(--primary-rgb), 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .contact-text h4 {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        color: #333;
+      }
+      
+      .contact-text p {
+        color: #666;
+        line-height: 1.6;
+      }
+      
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+      
+      .social-icons a {
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      
+      .social-icons a:hover {
+        background-color: var(--secondary);
+        transform: translateY(-3px);
+      }
+      
+      .contact-form {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        transition: all 0.3s ease;
+      }
+      
+      .contact-form:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+      }
+      
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+      
+      .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.2);
+        outline: none;
+      }
+      
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+      
+      .btn-submit {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .btn-submit:hover {
+        background-color: var(--secondary);
+        transform: translateY(-3px);
+      }
+      
+      .map-container {
+        margin-top: 50px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        height: 400px;
+      }
+      
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      
+      .faq-section {
+        margin-top: 70px;
+      }
+      
+      .faq-container {
+        margin-top: 40px;
+      }
+      
+      .faq-item {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+      
+      .faq-question {
+        padding: 20px;
+        font-weight: 600;
+        color: #333;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .faq-question i {
+        transition: all 0.3s ease;
+      }
+      
+      .faq-answer {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+      }
+      
+      .faq-item.active .faq-answer {
+        padding: 0 20px 20px;
+        max-height: 1000px;
+      }
+      
+      @media (max-width: 992px) {
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      :root {
+        --primary-rgb: 0, 123, 255;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-top">
+          <div class="logo">
+            <img src="/img/logo.png" alt="Logo TK Dharma Wanita" />
+            <div class="logo-text">
+              <h1>TK DHARMA WANITA RANG PERANG LAOK</h1>
+              <p>Taman Kanak - Kanak Negeri</p>
+            </div>
+          </div>
+          <div class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-container" id="navContainer">
+            <nav>
+                <ul>
+                  <li>
+                    <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+                  </li>
+                  <li>
+                    <a href="profil.html"><i class="fas fa-school"></i> Profil</a>
+                  </li>
+                  <li>
+                    <a href="profil-guru.html"><i class="fas fa-user-tie"></i> Profil Guru</a>
+                  </li>
+                  <li>
+                    <a href="fasilitas.html"><i class="fas fa-desktop"></i> Fasilitas</a>
+                  </li>
+                  <li>
+                    <a href="prestasi.html"><i class="fas fa-trophy"></i> Prestasi</a>
+                  </li>
+                  <li>
+                    <a href="pengumuman.html"><i class="fas fa-bullhorn"></i> Pengumuman</a>
+                  </li>
+                  <li >
+                    <a href="galeri.html"><i class="fas fa-images"></i> Galeri</a>
+                  </li>
+                  <li class="active">
+                    <a href="kontak.html"><i class="fas fa-phone"></i> Kontak</a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero" style="height: 300px;">
+      <img src="img/HERO.jpg" alt="Foto Sekolah" />
+      <div class="hero-content">
+        <h2>Kontak Kami</h2>
+        <p>Hubungi kami untuk informasi lebih lanjut tentang TK Dharma Wanita Rang Perang Laok</p>
+      </div>
+    </div>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="section-header">Hubungi Kami</h2>
+          <p>Jika Anda memiliki pertanyaan tentang pendaftaran, kurikulum, atau ingin mengetahui informasi lebih lanjut tentang TK Dharma Wanita Rang Perang Laok, jangan ragu untuk menghubungi kami melalui kontak di bawah ini. Kami siap membantu dan menjawab semua pertanyaan Anda.</p>
+        </div>
+
+        <div class="contact-container">
+          <div class="contact-info-box">
+            <h3 class="contact-info-title">Informasi Kontak</h3>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Alamat</h4>
+                <p>Desa Rang Perang Laok, Kec. Sampang, Kab. Sampang, Jawa Timur 69216</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Telepon</h4>
+                <p>+62 xxx-xxxx-xxxx</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Email</h4>
+                <p>tkdharmawanitarpl@example.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Jam Operasional</h4>
+                <p>Senin - Jumat: 07:00 - 12:00</p>
+                <p>Sabtu: 07:00 - 10:00</p>
+                <p>Minggu & Hari Libur: Tutup</p>
+              </div>
+            </div>
+            
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <h3 class="contact-info-title">Kirim Pesan</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name" class="form-label">Nama Lengkap</label>
+                <input type="text" id="name" class="form-control" placeholder="Masukkan nama lengkap Anda" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Masukkan alamat email Anda" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="phone" class="form-label">Nomor Telepon</label>
+                <input type="tel" id="phone" class="form-control" placeholder="Masukkan nomor telepon Anda">
+              </div>
+              
+              <div class="form-group">
+                <label for="subject" class="form-label">Subjek</label>
+                <input type="text" id="subject" class="form-control" placeholder="Masukkan subjek pesan">
+              </div>
+              
+              <div class="form-group">
+                <label for="message" class="form-label">Pesan</label>
+                <textarea id="message" class="form-control" placeholder="Tulis pesan Anda di sini..." required></textarea>
+              </div>
+              
+              <button type="submit" class="btn-submit">
+                Kirim Pesan <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="map-container">
+          <!-- Placeholder for Google Maps iframe -->
+          <!-- Replace this with actual Google Maps embed code when deploying -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.984542406705!2d113.27!3d-7.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDknMDAuMCJTIDExM8KwMTYnMTIuMCJF!5e0!3m2!1sid!2sid!4v1646000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        
+        <div class="faq-section">
+          <div class="section-intro">
+            <h2 class="section-header">Pertanyaan Umum</h2>
+            <p>Berikut adalah beberapa pertanyaan yang sering ditanyakan oleh orang tua calon siswa. Jika Anda tidak menemukan jawaban dari pertanyaan Anda, jangan ragu untuk menghubungi kami langsung.</p>
+          </div>
+          
+          <div class="faq-container">
+            <div class="faq-item">
+              <div class="faq-question">
+                Apa saja persyaratan pendaftaran siswa baru? <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Persyaratan pendaftaran siswa baru TK Dharma Wanita Rang Perang Laok meliputi:</p>
+                <ul>
+                  <li>Fotokopi akta kelahiran</li>
+                  <li>Fotokopi kartu keluarga</li>
+                  <li>Pas foto ukuran 3x4 (4 lembar)</li>
+                  <li>Usia minimal 4 tahun untuk kelas TK A dan 5 tahun untuk kelas TK B per Juli tahun ajaran baru</li>
+                  <li>Formulir pendaftaran yang telah diisi lengkap</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <div class="faq-question">
+                Kapan waktu pendaftaran siswa baru dibuka? <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Pendaftaran siswa baru biasanya dibuka pada bulan Januari hingga Juni setiap tahunnya. Untuk informasi lebih rinci mengenai tanggal pasti, silakan hubungi pihak sekolah atau pantau pengumuman resmi di website dan media sosial kami.</p>
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <div class="faq-question">
+                Berapa biaya pendidikan di TK Dharma Wanita? <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Biaya pendidikan di TK Dharma Wanita Rang Perang Laok meliputi:</p>
+                <ul>
+                  <li>Biaya pendaftaran: Rp xxx.xxx</li>
+                  <li>SPP bulanan: Rp xxx.xxx</li>
+                  <li>Biaya seragam: Rp xxx.xxx</li>
+                  <li>Biaya kegiatan tahunan: Rp xxx.xxx</li>
+                </ul>
+                <p>Kami juga menyediakan program beasiswa bagi siswa kurang mampu. Untuk informasi lebih lanjut, silakan hubungi bagian administrasi sekolah.</p>
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <div class="faq-question">
+                Apa saja fasilitas yang tersedia di TK Dharma Wanita? <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>TK Dharma Wanita Rang Perang Laok menyediakan berbagai fasilitas untuk menunjang proses belajar mengajar, di antaranya:</p>
+                <ul>
+                  <li>Ruang kelas yang nyaman dan ber-AC</li>
+                  <li>Area bermain indoor dan outdoor</li>
+                  <li>Perpustakaan mini</li>
+                  <li>Alat peraga edukasi</li>
+                  <li>Toilet bersih dan ramah anak</li>
+                  <li>UKS (Unit Kesehatan Sekolah)</li>
+                  <li>Area parkir yang aman</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <div class="faq-question">
+                Metode pembelajaran apa yang diterapkan? <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>TK Dharma Wanita Rang Perang Laok menerapkan metode pembelajaran yang berpusat pada anak (child-centered) dengan pendekatan bermain sambil belajar. Kurikulum kami mengacu pada kurikulum nasional yang dikembangkan oleh Kementerian Pendidikan dan Kebudayaan, dengan penekanan pada pengembangan karakter, motorik, kognitif, bahasa, sosial-emosional, dan nilai agama/moral.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Tentang Kami</h3>
+            <p>TK Dharma Wanita Rang Perang Laok adalah lembaga pendidikan anak usia dini yang berkomitmen memberikan pendidikan berkualitas bagi generasi penerus bangsa.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Menu Utama</h3>
+            <ul>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Beranda</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Profil</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Profil Guru</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Fasilitas</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Prestasi</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Galeri</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Kontak</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Informasi</h3>
+            <ul>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Jadwal Kegiatan</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Pengumuman</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Pendaftaran</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Berita Terbaru</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Kontak Kami</h3>
+            <div class="contact-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Alamat</h4>
+                <p>Desa Rang Perang Laok, Kec. Sampang, Kab. Sampang, Jawa Timur</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Telepon</h4>
+                <p>+62 xxx-xxxx-xxxx</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>tkdharmawanitarpl@example.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 TK Dharma Wanita Rang Perang Laok. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#" class="back-to-top active"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+      // Mobile Navigation Toggle
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navContainer = document.getElementById('navContainer');
+      
+      mobileToggle.addEventListener('click', () => {
+        navContainer.classList.toggle('active');
+      });
+      
+      // Back to Top Button
+      const backToTop = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('active');
+        } else {
+          backToTop.classList.remove('active');
+        }
+      });
+      
+      // FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+      
+      // Form Submission (placeholder - add actual handling)
+      const contactForm = document.getElementById('contactForm');
+      
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Terima kasih! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.');
+        contactForm.reset();
+      });
+    </script>
+  </body>
+</html>

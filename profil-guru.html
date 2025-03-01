@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Guru - TK DHARMA WANITA</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .profile-section {
+        padding: 70px 0;
+        background-color: #f8f9fa;
+      }
+      
+      .profile-header {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+      
+      .profile-header:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 4px;
+        background-color: var(--secondary);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+      
+      .teachers-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+      
+      .teacher-card {
+        background-color: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .teacher-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+      
+      .teacher-image {
+        height: 280px;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .teacher-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      
+      .teacher-card:hover .teacher-image img {
+        transform: scale(1.05);
+      }
+      
+      .teacher-info {
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .teacher-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 5px;
+      }
+      
+      .teacher-position {
+        font-size: 0.9rem;
+        color: var(--secondary);
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+      
+      .teacher-social {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      
+      .teacher-social a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+      
+      .teacher-social a:hover {
+        background-color: var(--secondary);
+        transform: translateY(-3px);
+      }
+      
+      .section-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 50px;
+      }
+      
+      .section-intro p {
+        color: #555;
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      
+      .teacher-details {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+        font-size: 0.9rem;
+      }
+      
+      .teacher-detail {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .teacher-detail i {
+        color: var(--primary);
+        width: 20px;
+      }
+      
+      .message-section {
+        background: linear-gradient(135deg, var(--primary) 0%, #1a5fb4 100%);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      
+      .message-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .message-content h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: var(--secondary);
+      }
+      
+      .message-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+      
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+      
+      .filter-btn {
+        padding: 10px 20px;
+        background-color: white;
+        border: 2px solid var(--primary);
+        border-radius: 30px;
+        color: var(--primary);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .filter-btn.active, .filter-btn:hover {
+        background-color: var(--primary);
+        color: white;
+      }
+      
+      @media (max-width: 768px) {
+        .teachers-container {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .filter-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .filter-btn {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-top">
+          <div class="logo">
+            <img src="/img/logo.png" alt="Logo TK Dharma Wanita" />
+            <div class="logo-text">
+              <h1>TK DHARMA WANITA RANG PERANG LAOK</h1>
+              <p>Taman Kanak - Kanak Negeri</p>
+            </div>
+          </div>
+          <div class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-container" id="navContainer">
+            <nav>
+                <ul>
+                  <li>
+                    <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+                  </li>
+                  <li>
+                    <a href="profil.html"><i class="fas fa-school"></i> Profil</a>
+                  </li>
+                  <li class="active">
+                    <a href="profil-guru.html"><i class="fas fa-user-tie"></i> Profil Guru</a>
+                  </li>
+                  <li>
+                    <a href="fasilitas.html"><i class="fas fa-desktop"></i> Fasilitas</a>
+                  </li>
+                  <li>
+                    <a href="prestasi.html"><i class="fas fa-trophy"></i> Prestasi</a>
+                  </li>
+                  <li>
+                    <a href="pengumuman.html"><i class="fas fa-bullhorn"></i> Pengumuman</a>
+                  </li>
+                  <li >
+                    <a href="galeri.html"><i class="fas fa-images"></i> Galeri</a>
+                  </li>
+                  <li>
+                    <a href="kontak.html"><i class="fas fa-phone"></i> Kontak</a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero" style="height: 300px;">
+      <img src="img/HERO.jpg" alt="Foto Sekolah" />
+      <div class="hero-content">
+        <h2>Profil Guru</h2>
+        <p>Tenaga pendidik berkualitas TK Dharma Wanita Rang Perang Laok</p>
+      </div>
+    </div>
+
+    <section class="profile-section">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="profile-header">Tenaga Pendidik Kami</h2>
+          <p>TK Dharma Wanita Rang Perang Laok memiliki tenaga pendidik yang berkualitas, berpengalaman, dan berkomitmen untuk memberikan pendidikan terbaik bagi anak-anak. Guru-guru kami memiliki latar belakang pendidikan yang sesuai dan selalu mengikuti pelatihan untuk meningkatkan kompetensi.</p>
+        </div>
+
+        <div class="filter-buttons">
+          <button class="filter-btn active">Semua</button>
+          <button class="filter-btn">Kepala Sekolah</button>
+          <button class="filter-btn">Guru Kelas</button>
+          <button class="filter-btn">Staf Administrasi</button>
+        </div>
+
+        <div class="teachers-container">
+          <!-- Kepala Sekolah -->
+          <div class="teacher-card">
+            <div class="teacher-image">
+              <img src="/api/placeholder/400/500" alt="Kepala Sekolah" />
+            </div>
+            <div class="teacher-info">
+              <h3 class="teacher-name">Ibu Siti Nuraini, S.Pd</h3>
+              <p class="teacher-position">Kepala Sekolah</p>
+              <div class="teacher-details">
+                <div class="teacher-detail">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>S1 Pendidikan Anak Usia Dini</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-briefcase"></i>
+                  <span>Pengalaman 10 tahun</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-envelope"></i>
+                  <span>sitinuraini@example.com</span>
+                </div>
+              </div>
+              <div class="teacher-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guru Kelas A -->
+          <div class="teacher-card">
+            <div class="teacher-image">
+              <img src="/api/placeholder/400/500" alt="Guru Kelas A" />
+            </div>
+            <div class="teacher-info">
+              <h3 class="teacher-name">Ibu Nur Hidayah, S.Pd</h3>
+              <p class="teacher-position">Guru Kelas A</p>
+              <div class="teacher-details">
+                <div class="teacher-detail">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>S1 Pendidikan Guru PAUD</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-briefcase"></i>
+                  <span>Pengalaman 7 tahun</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-envelope"></i>
+                  <span>nurhidayah@example.com</span>
+                </div>
+              </div>
+              <div class="teacher-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guru Kelas B -->
+          <div class="teacher-card">
+            <div class="teacher-image">
+              <img src="/api/placeholder/400/500" alt="Guru Kelas B" />
+            </div>
+            <div class="teacher-info">
+              <h3 class="teacher-name">Ibu Dewi Rahmawati, S.Pd</h3>
+              <p class="teacher-position">Guru Kelas B</p>
+              <div class="teacher-details">
+                <div class="teacher-detail">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>S1 Pendidikan Anak Usia Dini</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-briefcase"></i>
+                  <span>Pengalaman 6 tahun</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-envelope"></i>
+                  <span>dewi@example.com</span>
+                </div>
+              </div>
+              <div class="teacher-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guru Pendamping A -->
+          <div class="teacher-card">
+            <div class="teacher-image">
+              <img src="/api/placeholder/400/500" alt="Guru Pendamping" />
+            </div>
+            <div class="teacher-info">
+              <h3 class="teacher-name">Ibu Rina Agustina</h3>
+              <p class="teacher-position">Guru Pendamping Kelas A</p>
+              <div class="teacher-details">
+                <div class="teacher-detail">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>D3 Pendidikan Anak Usia Dini</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-briefcase"></i>
+                  <span>Pengalaman 4 tahun</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-envelope"></i>
+                  <span>rina@example.com</span>
+                </div>
+              </div>
+              <div class="teacher-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guru Pendamping B -->
+          <div class="teacher-card">
+            <div class="teacher-image">
+              <img src="/api/placeholder/400/500" alt="Guru Pendamping" />
+            </div>
+            <div class="teacher-info">
+              <h3 class="teacher-name">Ibu Sinta Purnama</h3>
+              <p class="teacher-position">Guru Pendamping Kelas B</p>
+              <div class="teacher-details">
+                <div class="teacher-detail">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>D3 Pendidikan Guru PAUD</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-briefcase"></i>
+                  <span>Pengalaman 3 tahun</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-envelope"></i>
+                  <span>sinta@example.com</span>
+                </div>
+              </div>
+              <div class="teacher-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guru Seni -->
+          <div class="teacher-card">
+            <div class="teacher-image">
+              <img src="/api/placeholder/400/500" alt="Guru Seni" />
+            </div>
+            <div class="teacher-info">
+              <h3 class="teacher-name">Ibu Maya Indah, S.Sn</h3>
+              <p class="teacher-position">Guru Seni & Kreativitas</p>
+              <div class="teacher-details">
+                <div class="teacher-detail">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>S1 Seni Rupa</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-briefcase"></i>
+                  <span>Pengalaman 5 tahun</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-envelope"></i>
+                  <span>maya@example.com</span>
+                </div>
+              </div>
+              <div class="teacher-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Staf Administrasi -->
+          <div class="teacher-card">
+            <div class="teacher-image">
+              <img src="/api/placeholder/400/500" alt="Staf Administrasi" />
+            </div>
+            <div class="teacher-info">
+              <h3 class="teacher-name">Bapak Ahmad Rizki</h3>
+              <p class="teacher-position">Staf Administrasi</p>
+              <div class="teacher-details">
+                <div class="teacher-detail">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>S1 Manajemen Pendidikan</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-briefcase"></i>
+                  <span>Pengalaman 4 tahun</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-envelope"></i>
+                  <span>ahmad@example.com</span>
+                </div>
+              </div>
+              <div class="teacher-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Petugas Keamanan -->
+          <div class="teacher-card">
+            <div class="teacher-image">
+              <img src="/api/placeholder/400/500" alt="Petugas Keamanan" />
+            </div>
+            <div class="teacher-info">
+              <h3 class="teacher-name">Bapak Supriadi</h3>
+              <p class="teacher-position">Petugas Keamanan</p>
+              <div class="teacher-details">
+                <div class="teacher-detail">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>SMA</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-briefcase"></i>
+                  <span>Pengalaman 5 tahun</span>
+                </div>
+                <div class="teacher-detail">
+                  <i class="fas fa-envelope"></i>
+                  <span>supriadi@example.com</span>
+                </div>
+              </div>
+              <div class="teacher-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="message-section">
+          <div class="message-content">
+            <h3>Pesan dari Kepala Sekolah</h3>
+            <p>"Di TK Dharma Wanita Rang Perang Laok, kami percaya bahwa setiap anak memiliki potensi unik yang perlu digali dan dikembangkan. Kami berkomitmen untuk memberikan pendidikan berkualitas dengan pendekatan yang menyenangkan dan memperhatikan kebutuhan setiap anak. Bersama-sama, mari kita bangun fondasi yang kuat untuk masa depan anak-anak kita."</p>
+            <p><strong>- Ibu Siti Nuraini, S.Pd</strong></p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="#" class="btn">Hubungi Guru Kami <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Tentang Kami</h3>
+            <p>TK Dharma Wanita Rang Perang Laok adalah lembaga pendidikan anak usia dini yang berkomitmen memberikan pendidikan berkualitas bagi generasi penerus bangsa.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Menu Utama</h3>
+            <ul>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Beranda</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Profil</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Profil Guru</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Fasilitas</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Prestasi</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Galeri</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Kontak</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Informasi</h3>
+            <ul>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Jadwal Kegiatan</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Pengumuman</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Pendaftaran</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Berita Terbaru</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Kontak Kami</h3>
+            <div class="contact-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Alamat</h4>
+                <p>Desa Rang Perang Laok, Kec. Sampang, Kab. Sampang, Jawa Timur</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Telepon</h4>
+                <p>+62 xxx-xxxx-xxxx</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>tkdharmawanitarpl@example.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 TK Dharma Wanita Rang Perang Laok. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#" class="back-to-top active"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+      // Mobile Navigation Toggle
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navContainer = document.getElementById('navContainer');
+      
+      mobileToggle.addEventListener('click', () => {
+        navContainer.classList.toggle('active');
+      });
+      
+      // Back to Top Button
+      const backToTop = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('active');
+        } else {
+          backToTop.classList.remove('active');
+        }
+      });
+      
+      // Filter Buttons
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          // Here you would add filtering functionality
+          // This is just a UI demo without the actual filtering
+        });
+      });
+    </script>
+  </body>
+</html>

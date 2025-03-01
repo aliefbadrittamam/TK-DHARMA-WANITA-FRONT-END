@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fasilitas - TK DHARMA WANITA</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .facilities-section {
+        padding: 70px 0;
+        background-color: #f8f9fa;
+      }
+      
+      .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+      
+      .section-header:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 4px;
+        background-color: var(--secondary);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+      
+      .section-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 50px;
+      }
+      
+      .section-intro p {
+        color: #555;
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      
+      .facilities-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+      
+      .facility-card {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .facility-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+      
+      .facility-image {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .facility-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      
+      .facility-card:hover .facility-image img {
+        transform: scale(1.1);
+      }
+      
+      .facility-content {
+        padding: 25px;
+      }
+      
+      .facility-title {
+        font-size: 1.4rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      
+      .facility-title:after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: var(--secondary);
+        bottom: 0;
+        left: 0;
+        border-radius: 2px;
+      }
+      
+      .facility-description {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+      
+      .special-facilities {
+        margin-top: 70px;
+      }
+      
+      .special-facility {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+        margin-bottom: 70px;
+      }
+      
+      .special-facility:nth-child(even) {
+        direction: rtl;
+      }
+      
+      .special-facility:nth-child(even) .special-facility-content {
+        direction: ltr;
+      }
+      
+      .special-facility-image {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        height: 400px;
+      }
+      
+      .special-facility-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .special-facility-title {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 15px;
+      }
+      
+      .special-facility-title:after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 4px;
+        background-color: var(--secondary);
+        bottom: 0;
+        left: 0;
+        border-radius: 2px;
+      }
+      
+      .special-facility-description {
+        color: #555;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 25px;
+      }
+      
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .feature-list li {
+        padding-left: 30px;
+        position: relative;
+        margin-bottom: 15px;
+        color: #555;
+      }
+      
+      .feature-list li:before {
+        content: "\f058";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        color: var(--secondary);
+        position: absolute;
+        left: 0;
+        top: 2px;
+      }
+      
+      .video-section {
+        text-align: center;
+        margin-top: 70px;
+      }
+      
+      .video-container {
+        margin-top: 40px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        height: 500px;
+      }
+      
+      .video-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      
+      .stats-section {
+        margin-top: 70px;
+        text-align: center;
+      }
+      
+      .stats-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-top: 40px;
+      }
+      
+      .stat-item {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 30px 20px;
+        transition: all 0.3s ease;
+      }
+      
+      .stat-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+      
+      .stat-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+      
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--secondary);
+        margin-bottom: 10px;
+      }
+      
+      .stat-title {
+        font-size: 1.1rem;
+        color: #555;
+      }
+      
+      @media (max-width: 992px) {
+        .facilities-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .special-facility {
+          grid-template-columns: 1fr;
+        }
+        
+        .special-facility:nth-child(even) {
+          direction: ltr;
+        }
+        
+        .stats-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .facilities-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .stats-container {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      :root {
+        --primary-rgb: 0, 123, 255;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-top">
+          <div class="logo">
+            <img src="/img/logo.png" alt="Logo TK Dharma Wanita" />
+            <div class="logo-text">
+              <h1>TK DHARMA WANITA RANG PERANG LAOK</h1>
+              <p>Taman Kanak - Kanak Negeri</p>
+            </div>
+          </div>
+          <div class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-container" id="navContainer">
+          <nav>
+            <ul>
+              <li>
+                <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+              </li>
+              <li>
+                <a href="profil.html"><i class="fas fa-school"></i> Profil</a>
+              </li>
+              <li>
+                <a href="profil-guru.html"><i class="fas fa-user-tie"></i> Profil Guru</a>
+              </li>
+              <li class="active">
+                <a href="#"><i class="fas fa-desktop"></i> Fasilitas</a>
+              </li>
+              <li>
+                <a href="prestasi.html"><i class="fas fa-trophy"></i> Prestasi</a>
+              </li>
+              <li>
+                <a href="pengumuman.html"><i class="fas fa-bullhorn"></i> Pengumuman</a>
+              </li>
+              <li>
+                <a href="galeri.html"><i class="fas fa-images"></i> Galeri</a>
+              </li>
+              <li>
+                <a href="kontak.html"><i class="fas fa-phone"></i> Kontak</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero" style="height: 300px;">
+      <img src="img/HERO.jpg" alt="Foto Sekolah" />
+      <div class="hero-content">
+        <h2>Fasilitas Sekolah</h2>
+        <p>Menyediakan lingkungan belajar yang nyaman dan mendukung perkembangan anak</p>
+      </div>
+    </div>
+
+    <section class="facilities-section">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="section-header">Fasilitas TK Dharma Wanita</h2>
+          <p>TK Dharma Wanita Rang Perang Laok dilengkapi dengan berbagai fasilitas modern dan ramah anak untuk mendukung proses belajar mengajar yang optimal. Kami berkomitmen untuk menciptakan lingkungan yang aman, nyaman, dan kondusif bagi tumbuh kembang anak didik kami.</p>
+        </div>
+
+        <div class="facilities-grid">
+          <div class="facility-card">
+            <div class="facility-image">
+              <img src="/img/HERO.jpg" alt="Ruang Kelas" />
+            </div>
+            <div class="facility-content">
+              <h3 class="facility-title">Ruang Kelas Nyaman</h3>
+              <p class="facility-description">Ruang kelas yang luas, bersih, dan dilengkapi dengan AC untuk kenyamanan belajar anak. Setiap kelas dirancang dengan warna-warna cerah dan dilengkapi dengan perabotan yang ramah anak.</p>
+            </div>
+          </div>
+          
+          <div class="facility-card">
+            <div class="facility-image">
+              <img src="/img/HERO.jpg" alt="Area Bermain Indoor" />
+            </div>
+            <div class="facility-content">
+              <h3 class="facility-title">Area Bermain Indoor</h3>
+              <p class="facility-description">Area bermain indoor yang dilengkapi dengan berbagai permainan edukatif untuk mengembangkan motorik kasar dan halus anak. Area ini juga dilengkapi dengan alas lantai anti-slip untuk keamanan anak-anak.</p>
+            </div>
+          </div>
+          
+          <div class="facility-card">
+            <div class="facility-image">
+              <img src="/img/HERO.jpg" alt="Taman Bermain Outdoor" />
+            </div>
+            <div class="facility-content">
+              <h3 class="facility-title">Taman Bermain Outdoor</h3>
+              <p class="facility-description">Taman bermain outdoor yang luas dengan berbagai peralatan bermain seperti perosotan, ayunan, dan jungkat-jungkit yang memenuhi standar keamanan. Dilengkapi dengan area teduh untuk beristirahat.</p>
+            </div>
+          </div>
+          
+          <div class="facility-card">
+            <div class="facility-image">
+              <img src="/img/HERO.jpg" alt="Perpustakaan Mini" />
+            </div>
+            <div class="facility-content">
+              <h3 class="facility-title">Perpustakaan Mini</h3>
+              <p class="facility-description">Perpustakaan mini yang menyediakan berbagai buku cerita, buku pengetahuan, dan majalah anak-anak untuk menumbuhkan minat baca sejak dini. Dilengkapi dengan area membaca yang nyaman.</p>
+            </div>
+          </div>
+          
+          <div class="facility-card">
+            <div class="facility-image">
+              <img src="/img/HERO.jpg" alt="UKS" />
+            </div>
+            <div class="facility-content">
+              <h3 class="facility-title">UKS (Unit Kesehatan Sekolah)</h3>
+              <p class="facility-description">Ruang UKS yang dilengkapi dengan tempat tidur, peralatan P3K, dan obat-obatan dasar untuk pertolongan pertama. Kami juga bekerja sama dengan Puskesmas setempat untuk pemeriksaan kesehatan berkala.</p>
+            </div>
+          </div>
+          
+          <div class="facility-card">
+            <div class="facility-image">
+              <img src="/img/HERO.jpg" alt="Toilet Anak" />
+            </div>
+            <div class="facility-content">
+              <h3 class="facility-title">Toilet Ramah Anak</h3>
+              <p class="facility-description">Toilet yang dirancang khusus untuk anak-anak dengan ukuran yang sesuai, bersih, dan dilengkapi dengan peralatan yang memudahkan anak untuk menggunakannya secara mandiri.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="special-facilities">
+          <div class="section-intro">
+            <h2 class="section-header">Fasilitas Unggulan</h2>
+            <p>Selain fasilitas standar, TK Dharma Wanita Rang Perang Laok juga memiliki beberapa fasilitas unggulan yang menjadi kebanggaan kami dan mendukung program pendidikan yang kami selenggarakan.</p>
+          </div>
+          
+          <div class="special-facility">
+            <div class="special-facility-image">
+              <img src="/img/HERO.jpg" alt="Sentra Seni dan Kreativitas" />
+            </div>
+            <div class="special-facility-content">
+              <h3 class="special-facility-title">Sentra Seni dan Kreativitas</h3>
+              <p class="special-facility-description">Ruang khusus yang dilengkapi dengan berbagai peralatan seni dan kerajinan tangan untuk mengembangkan kreativitas dan kemampuan seni anak-anak. Di sini anak-anak dapat menggambar, melukis, membuat kerajinan dari tanah liat, dan berbagai aktivitas seni lainnya.</p>
+              <ul class="feature-list">
+                <li>Peralatan lukis dan menggambar lengkap</li>
+                <li>Area untuk kerajinan tangan</li>
+                <li>Bahan-bahan ramah lingkungan</li>
+                <li>Display karya seni anak-anak</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="special-facility">
+            <div class="special-facility-image">
+              <img src="/img/HERO.jpg" alt="Laboratorium Mini Sains" />
+            </div>
+            <div class="special-facility-content">
+              <h3 class="special-facility-title">Laboratorium Mini Sains</h3>
+              <p class="special-facility-description">Laboratorium mini yang dilengkapi dengan peralatan eksperimen sederhana untuk memperkenalkan konsep-konsep dasar sains kepada anak-anak melalui aktivitas yang menyenangkan dan interaktif.</p>
+              <ul class="feature-list">
+                <li>Kit eksperimen sains sederhana</li>
+                <li>Model-model tubuh manusia dan hewan</li>
+                <li>Alat pengamatan alam</li>
+                <li>Buku-buku pengetahuan sains anak</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="special-facility">
+            <div class="special-facility-image">
+              <img src="/img/HERO.jpg" alt="Area Pertanian Mini" />
+            </div>
+            <div class="special-facility-content">
+              <h3 class="special-facility-title">Area Pertanian Mini</h3>
+              <p class="special-facility-description">Area khusus di lingkungan sekolah yang digunakan untuk kegiatan berkebun dan bertani skala kecil. Di sini anak-anak dapat belajar tentang tanaman, proses pertumbuhan, dan pentingnya menjaga lingkungan.</p>
+              <ul class="feature-list">
+                <li>Beberapa plot untuk menanam sayuran dan bunga</li>
+                <li>Peralatan berkebun ukuran anak-anak</li>
+                <li>Area kompos untuk pembelajaran daur ulang</li>
+                <li>Sistem irigasi sederhana</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="video-section">
+          <div class="section-intro">
+            <h2 class="section-header">Virtual Tour</h2>
+            <p>Jelajahi fasilitas TK Dharma Wanita Rang Perang Laok melalui video virtual tour di bawah ini. Video ini akan memberikan gambaran lengkap tentang lingkungan sekolah dan fasilitas yang kami miliki.</p>
+          </div>
+          
+          <div class="video-container">
+            <!-- Placeholder for YouTube video embed -->
+            <!-- Replace with actual YouTube embed code when deploying -->
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Virtual Tour TK Dharma Wanita" allowfullscreen></iframe>
+          </div>
+        </div>
+        
+        <div class="stats-section">
+          <div class="section-intro">
+            <h2 class="section-header">Fakta & Angka</h2>
+            <p>Berikut ini adalah beberapa fakta dan angka terkait fasilitas dan lingkungan belajar di TK Dharma Wanita Rang Perang Laok.</p>
+          </div>
+          
+          <div class="stats-container">
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="stat-number">6</div>
+              <div class="stat-title">Ruang Kelas</div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-number">15</div>
+              <div class="stat-title">Siswa per Kelas</div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <div class="stat-number">500+</div>
+              <div class="stat-title">Koleksi Buku</div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-tree"></i>
+              </div>
+              <div class="stat-number">1200</div>
+              <div class="stat-title">m² Luas Area</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Tentang Kami</h3>
+            <p>TK Dharma Wanita Rang Perang Laok adalah lembaga pendidikan anak usia dini yang berkomitmen memberikan pendidikan berkualitas bagi generasi penerus bangsa.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Menu Utama</h3>
+            <ul>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Beranda</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Profil</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Profil Guru</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Fasilitas</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Prestasi</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Galeri</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Kontak</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Informasi</h3>
+            <ul>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Jadwal Kegiatan</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Pengumuman</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Pendaftaran</a></li>
+              <li><a href="#"><i class="fas fa-angle-right"></i> Berita Terbaru</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Kontak Kami</h3>
+            <div class="contact-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Alamat</h4>
+                <p>Desa Rang Perang Laok, Kec. Sampang, Kab. Sampang, Jawa Timur</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Telepon</h4>
+                <p>+62 xxx-xxxx-xxxx</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>tkdharmawanitarpl@example.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 TK Dharma Wanita Rang Perang Laok. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#" class="back-to-top active"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+      // Mobile Navigation Toggle
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navContainer = document.getElementById('navContainer');
+      
+      mobileToggle.addEventListener('click', () => {
+        navContainer.classList.toggle('active');
+      });
+      
+      // Back to Top Button
+      const backToTop = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('active');
+        } else {
+          backToTop.classList.remove('active');
+        }
+      });
+    </script>
+  </body>
+</html>
