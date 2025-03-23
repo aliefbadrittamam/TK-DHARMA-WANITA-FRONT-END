@@ -14,13 +14,13 @@
         padding: 70px 0;
         background-color: #f8f9fa;
       }
-      
+
       .section-header {
         text-align: center;
         margin-bottom: 50px;
         position: relative;
       }
-      
+
       .section-header:after {
         content: "";
         position: absolute;
@@ -32,19 +32,19 @@
         transform: translateX(-50%);
         border-radius: 2px;
       }
-      
+
       .section-intro {
         text-align: center;
         max-width: 800px;
         margin: 0 auto 50px;
       }
-      
+
       .section-intro p {
         color: #555;
         font-size: 1.1rem;
         line-height: 1.7;
       }
-      
+
       .filter-buttons {
         display: flex;
         justify-content: center;
@@ -52,7 +52,7 @@
         margin-bottom: 40px;
         flex-wrap: wrap;
       }
-      
+
       .filter-btn {
         padding: 10px 20px;
         background-color: white;
@@ -63,19 +63,20 @@
         cursor: pointer;
         transition: all 0.3s ease;
       }
-      
-      .filter-btn.active, .filter-btn:hover {
+
+      .filter-btn.active,
+      .filter-btn:hover {
         background-color: var(--primary);
         color: white;
       }
-      
+
       .gallery-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
         margin-bottom: 50px;
       }
-      
+
       .gallery-item {
         position: relative;
         border-radius: 15px;
@@ -85,23 +86,23 @@
         height: 250px;
         cursor: pointer;
       }
-      
+
       .gallery-item:hover {
         transform: translateY(-5px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
       }
-      
+
       .gallery-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: all 0.5s ease;
       }
-      
+
       .gallery-item:hover img {
         transform: scale(1.05);
       }
-      
+
       .gallery-overlay {
         position: absolute;
         bottom: 0;
@@ -113,28 +114,28 @@
         transform: translateY(100%);
         transition: all 0.3s ease;
       }
-      
+
       .gallery-item:hover .gallery-overlay {
         transform: translateY(0);
       }
-      
+
       .gallery-title {
         font-size: 1.1rem;
         margin-bottom: 5px;
         font-weight: 600;
       }
-      
+
       .gallery-date {
         font-size: 0.85rem;
         color: #ddd;
         display: flex;
         align-items: center;
       }
-      
+
       .gallery-date i {
         margin-right: 5px;
       }
-      
+
       .gallery-category {
         position: absolute;
         top: 15px;
@@ -147,19 +148,19 @@
         font-weight: 600;
         z-index: 2;
       }
-      
+
       .view-all-btn {
         text-align: center;
         margin-top: 40px;
       }
-      
+
       .pagination {
         display: flex;
         justify-content: center;
         gap: 10px;
         margin-top: 40px;
       }
-      
+
       .page-link {
         width: 40px;
         height: 40px;
@@ -174,12 +175,13 @@
         text-decoration: none;
         transition: all 0.3s ease;
       }
-      
-      .page-link.active, .page-link:hover {
+
+      .page-link.active,
+      .page-link:hover {
         background-color: var(--primary);
         color: white;
       }
-      
+
       /* Lightbox styles */
       .lightbox {
         position: fixed;
@@ -196,25 +198,25 @@
         visibility: hidden;
         transition: all 0.3s ease;
       }
-      
+
       .lightbox.active {
         opacity: 1;
         visibility: visible;
       }
-      
+
       .lightbox-content {
         position: relative;
         max-width: 90%;
         max-height: 80%;
       }
-      
+
       .lightbox-img {
         max-width: 100%;
         max-height: 80vh;
         border-radius: 5px;
         border: 5px solid white;
       }
-      
+
       .lightbox-caption {
         position: absolute;
         bottom: -50px;
@@ -226,7 +228,7 @@
         text-align: center;
         border-radius: 0 0 5px 5px;
       }
-      
+
       .lightbox-close {
         position: absolute;
         top: -40px;
@@ -237,7 +239,7 @@
         font-size: 2rem;
         cursor: pointer;
       }
-      
+
       .lightbox-nav {
         position: absolute;
         top: 50%;
@@ -246,8 +248,9 @@
         justify-content: space-between;
         transform: translateY(-50%);
       }
-      
-      .lightbox-prev, .lightbox-next {
+
+      .lightbox-prev,
+      .lightbox-next {
         background-color: rgba(0, 0, 0, 0.5);
         color: white;
         border: none;
@@ -262,22 +265,68 @@
         margin: 0 20px;
         transition: all 0.3s ease;
       }
-      
-      .lightbox-prev:hover, .lightbox-next:hover {
+
+      .lightbox-prev:hover,
+      .lightbox-next:hover {
         background-color: var(--primary);
       }
-      
+
       .gallery-album {
-        position: relative;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        height: 250px;
-        cursor: pointer;
-        grid-column: span 1;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 250px;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+
+      .gallery-album .image-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
-      
+
+      .gallery-album img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s ease;
+}
+/* Efek Hover */
+.gallery-album:hover img {
+  transform: scale(1.1); /* Efek zoom sedikit */
+}
+
+.gallery-album .album-title {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Tampilkan judul saat hover */
+.gallery-album:hover .album-title {
+  opacity: 1;
+}
+
       .album-count {
         position: absolute;
         bottom: 15px;
@@ -293,11 +342,11 @@
         gap: 5px;
         z-index: 2;
       }
-      
+
       .gallery-album.featured {
         grid-column: span 2;
         grid-row: span 2;
-        height: auto;
+        height: 550px; /* Samakan dengan card lainnya */
       }
 
       /* Albums grid view */
@@ -491,7 +540,8 @@
         transform: translateY(-50%);
       }
 
-      .modal-prev, .modal-next {
+      .modal-prev,
+      .modal-next {
         background-color: rgba(0, 0, 0, 0.5);
         color: white;
         border: none;
@@ -507,7 +557,8 @@
         transition: all 0.3s ease;
       }
 
-      .modal-prev:hover, .modal-next:hover {
+      .modal-prev:hover,
+      .modal-next:hover {
         background-color: var(--primary);
       }
 
@@ -518,12 +569,12 @@
         left: 0;
         font-size: 1rem;
       }
-      
+
       @media (max-width: 992px) {
         .gallery-container {
           grid-template-columns: repeat(2, 1fr);
         }
-        
+
         .gallery-album.featured {
           grid-column: span 2;
           grid-row: span 1;
@@ -533,21 +584,21 @@
           grid-template-columns: repeat(3, 1fr);
         }
       }
-      
+
       @media (max-width: 768px) {
         .gallery-container {
           grid-template-columns: 1fr;
         }
-        
+
         .gallery-album.featured {
           grid-column: span 1;
         }
-        
+
         .filter-buttons {
           flex-direction: column;
           align-items: center;
         }
-        
+
         .filter-btn {
           width: 80%;
         }
@@ -595,13 +646,19 @@
                 <a href="profil.html"><i class="fas fa-school"></i> Profil</a>
               </li>
               <li>
-                <a href="profil-guru.html"><i class="fas fa-user-tie"></i> Profil Guru</a>
+                <a href="profil-guru.html"
+                  ><i class="fas fa-user-tie"></i> Profil Guru</a
+                >
               </li>
               <li>
-                <a href="fasilitas.html"><i class="fas fa-desktop"></i> Fasilitas</a>
+                <a href="fasilitas.html"
+                  ><i class="fas fa-desktop"></i> Fasilitas</a
+                >
               </li>
               <li>
-                <a href="pengumuman.html"><i class="fas fa-bullhorn"></i> Pengumuman</a>
+                <a href="pengumuman.html"
+                  ><i class="fas fa-bullhorn"></i> Pengumuman</a
+                >
               </li>
               <li class="active">
                 <a href="#"><i class="fas fa-images"></i> Galeri</a>
@@ -615,11 +672,13 @@
       </div>
     </header>
 
-    <div class="hero" style="height: 300px;">
+    <div class="hero" style="height: 300px">
       <img src="img/HERO.jpg" alt="Foto Sekolah" />
       <div class="hero-content">
         <h2>Galeri</h2>
-        <p>Kumpulan foto dan video kegiatan TK Dharma Wanita Rang Perang Laok</p>
+        <p>
+          Kumpulan foto dan video kegiatan TK Dharma Wanita Rang Perang Laok
+        </p>
       </div>
     </div>
 
@@ -627,7 +686,12 @@
       <div class="container">
         <div class="section-intro">
           <h2 class="section-header">Galeri Foto & Video</h2>
-          <p>Dokumentasi berbagai kegiatan dan acara yang dilaksanakan oleh TK Dharma Wanita Rang Perang Laok. Halaman ini berisi kumpulan foto-foto kegiatan belajar mengajar, kegiatan ekstrakurikuler, acara sekolah, dan prestasi yang telah diraih oleh siswa-siswi kami.</p>
+          <p>
+            Dokumentasi berbagai kegiatan dan acara yang dilaksanakan oleh TK
+            Dharma Wanita Rang Perang Laok. Halaman ini berisi kumpulan
+            foto-foto kegiatan belajar mengajar, kegiatan ekstrakurikuler, acara
+            sekolah, dan prestasi yang telah diraih oleh siswa-siswi kami.
+          </p>
         </div>
 
         <!-- Album View Container -->
@@ -651,109 +715,185 @@
 
         <div class="filter-buttons">
           <button class="filter-btn active" data-filter="all">Semua</button>
-          <button class="filter-btn" data-filter="kegiatan-belajar">Kegiatan Belajar</button>
-          <button class="filter-btn" data-filter="acara-sekolah">Acara Sekolah</button>
-          <button class="filter-btn" data-filter="ekstrakurikuler">Ekstrakurikuler</button>
-          <button class="filter-btn" data-filter="lomba-prestasi">Lomba & Prestasi</button>
+          <button class="filter-btn" data-filter="kegiatan-belajar">
+            Kegiatan Belajar
+          </button>
+          <button class="filter-btn" data-filter="acara-sekolah">
+            Acara Sekolah
+          </button>
+          <button class="filter-btn" data-filter="ekstrakurikuler">
+            Ekstrakurikuler
+          </button>
+          <button class="filter-btn" data-filter="lomba-prestasi">
+            Lomba & Prestasi
+          </button>
         </div>
 
         <div id="galleryContainer" class="gallery-container">
           <!-- Album 1 -->
-          <div class="gallery-album featured" data-album-id="1" data-category="acara-sekolah">
+          <div
+            class="gallery-album featured"
+            data-album-id="1"
+            data-category="acara-sekolah"
+          >
             <span class="gallery-category">Ramadhan 2025</span>
-            <span class="album-count"><i class="fas fa-image"></i> 24 Foto</span>
-            <img src="img/HERO.jpg" alt="Perayaan Hari Kartini" />
+            <span class="album-count"
+              ><i class="fas fa-image"></i> 24 Foto</span
+            >
+            <img src="img/ramadhan_2025/1.jpg" style="object-fit: cover" />
             <div class="gallery-overlay">
               <h3 class="gallery-title">Perayaan Hari Kartini 2024</h3>
-              <p class="gallery-date"><i class="far fa-calendar-alt"></i> 21 April 2024</p>
+              <p class="gallery-date">
+                <i class="far fa-calendar-alt"></i> 21 April 2024
+              </p>
             </div>
           </div>
 
           <!-- Album 2 -->
-          <div class="gallery-album" data-album-id="2" data-category="kegiatan-belajar">
+          <div
+            class="gallery-album"
+            data-album-id="2"
+            data-category="kegiatan-belajar"
+          >
             <span class="gallery-category">Kegiatan Belajar</span>
-            <span class="album-count"><i class="fas fa-image"></i> 15 Foto</span>
+            <span class="album-count"
+              ><i class="fas fa-image"></i> 15 Foto</span
+            >
             <img src="img/HERO.jpg" alt="Kegiatan Mewarnai" />
             <div class="gallery-overlay">
               <h3 class="gallery-title">Kegiatan Mewarnai</h3>
-              <p class="gallery-date"><i class="far fa-calendar-alt"></i> 5 Februari 2025</p>
+              <p class="gallery-date">
+                <i class="far fa-calendar-alt"></i> 5 Februari 2025
+              </p>
             </div>
           </div>
 
           <!-- Album 3 -->
-          <div class="gallery-album" data-album-id="3" data-category="ekstrakurikuler">
+          <div
+            class="gallery-album"
+            data-album-id="3"
+            data-category="ekstrakurikuler"
+          >
             <span class="gallery-category">Ekstrakurikuler</span>
-            <span class="album-count"><i class="fas fa-image"></i> 12 Foto</span>
+            <span class="album-count"
+              ><i class="fas fa-image"></i> 12 Foto</span
+            >
             <img src="img/HERO.jpg" alt="Tari Tradisional" />
             <div class="gallery-overlay">
               <h3 class="gallery-title">Latihan Tari Tradisional</h3>
-              <p class="gallery-date"><i class="far fa-calendar-alt"></i> 18 Januari 2025</p>
+              <p class="gallery-date">
+                <i class="far fa-calendar-alt"></i> 18 Januari 2025
+              </p>
             </div>
           </div>
 
           <!-- Album 4 -->
-          <div class="gallery-album" data-album-id="4" data-category="lomba-prestasi">
+          <div
+            class="gallery-album"
+            data-album-id="4"
+            data-category="lomba-prestasi"
+          >
             <span class="gallery-category">Lomba & Prestasi</span>
             <span class="album-count"><i class="fas fa-image"></i> 8 Foto</span>
             <img src="img/HERO.jpg" alt="Lomba Mewarnai" />
             <div class="gallery-overlay">
               <h3 class="gallery-title">Lomba Mewarnai Tingkat Kecamatan</h3>
-              <p class="gallery-date"><i class="far fa-calendar-alt"></i> 10 Desember 2024</p>
+              <p class="gallery-date">
+                <i class="far fa-calendar-alt"></i> 10 Desember 2024
+              </p>
             </div>
           </div>
 
           <!-- Album 5 -->
-          <div class="gallery-album" data-album-id="5" data-category="acara-sekolah">
+          <div
+            class="gallery-album"
+            data-album-id="5"
+            data-category="acara-sekolah"
+          >
             <span class="gallery-category">Acara Sekolah</span>
-            <span class="album-count"><i class="fas fa-image"></i> 20 Foto</span>
+            <span class="album-count"
+              ><i class="fas fa-image"></i> 20 Foto</span
+            >
             <img src="img/HERO.jpg" alt="Pentas Seni Akhir Tahun" />
             <div class="gallery-overlay">
               <h3 class="gallery-title">Pentas Seni Akhir Tahun 2024</h3>
-              <p class="gallery-date"><i class="far fa-calendar-alt"></i> 15 Desember 2024</p>
+              <p class="gallery-date">
+                <i class="far fa-calendar-alt"></i> 15 Desember 2024
+              </p>
             </div>
           </div>
 
           <!-- Album 6 -->
-          <div class="gallery-album" data-album-id="6" data-category="kegiatan-belajar">
+          <div
+            class="gallery-album"
+            data-album-id="6"
+            data-category="kegiatan-belajar"
+          >
             <span class="gallery-category">Kegiatan Belajar</span>
-            <span class="album-count"><i class="fas fa-image"></i> 10 Foto</span>
+            <span class="album-count"
+              ><i class="fas fa-image"></i> 10 Foto</span
+            >
             <img src="img/HERO.jpg" alt="Bermain di Luar Kelas" />
             <div class="gallery-overlay">
               <h3 class="gallery-title">Bermain di Luar Kelas</h3>
-              <p class="gallery-date"><i class="far fa-calendar-alt"></i> 28 November 2024</p>
+              <p class="gallery-date">
+                <i class="far fa-calendar-alt"></i> 28 November 2024
+              </p>
             </div>
           </div>
 
           <!-- Album 7 -->
-          <div class="gallery-album" data-album-id="7" data-category="ekstrakurikuler">
+          <div
+            class="gallery-album"
+            data-album-id="7"
+            data-category="ekstrakurikuler"
+          >
             <span class="gallery-category">Ekstrakurikuler</span>
-            <span class="album-count"><i class="fas fa-image"></i> 14 Foto</span>
+            <span class="album-count"
+              ><i class="fas fa-image"></i> 14 Foto</span
+            >
             <img src="img/HERO.jpg" alt="Menggambar dan Melukis" />
             <div class="gallery-overlay">
               <h3 class="gallery-title">Kegiatan Menggambar dan Melukis</h3>
-              <p class="gallery-date"><i class="far fa-calendar-alt"></i> 5 November 2024</p>
+              <p class="gallery-date">
+                <i class="far fa-calendar-alt"></i> 5 November 2024
+              </p>
             </div>
           </div>
 
           <!-- Album 8 -->
-          <div class="gallery-album" data-album-id="8" data-category="acara-sekolah">
+          <div
+            class="gallery-album"
+            data-album-id="8"
+            data-category="acara-sekolah"
+          >
             <span class="gallery-category">Acara Sekolah</span>
-            <span class="album-count"><i class="fas fa-image"></i> 18 Foto</span>
+            <span class="album-count"
+              ><i class="fas fa-image"></i> 18 Foto</span
+            >
             <img src="img/HERO.jpg" alt="Kunjungan ke Museum" />
             <div class="gallery-overlay">
               <h3 class="gallery-title">Kunjungan Edukasi ke Museum</h3>
-              <p class="gallery-date"><i class="far fa-calendar-alt"></i> 22 Oktober 2024</p>
+              <p class="gallery-date">
+                <i class="far fa-calendar-alt"></i> 22 Oktober 2024
+              </p>
             </div>
           </div>
 
           <!-- Album 9 -->
-          <div class="gallery-album" data-album-id="9" data-category="lomba-prestasi">
+          <div
+            class="gallery-album"
+            data-album-id="9"
+            data-category="lomba-prestasi"
+          >
             <span class="gallery-category">Lomba & Prestasi</span>
             <span class="album-count"><i class="fas fa-image"></i> 6 Foto</span>
             <img src="img/HERO.jpg" alt="Lomba Menari" />
             <div class="gallery-overlay">
               <h3 class="gallery-title">Juara Lomba Menari Tradisional</h3>
-              <p class="gallery-date"><i class="far fa-calendar-alt"></i> 10 Oktober 2024</p>
+              <p class="gallery-date">
+                <i class="far fa-calendar-alt"></i> 10 Oktober 2024
+              </p>
             </div>
           </div>
         </div>
@@ -765,8 +905,10 @@
           <a href="#" class="page-link"><i class="fas fa-angle-right"></i></a>
         </div>
 
-        <div style="text-align: center; margin-top: 40px;">
-          <a href="#" class="btn">Lihat Selengkapnya <i class="fas fa-plus"></i></a>
+        <div style="text-align: center; margin-top: 40px">
+          <a href="#" class="btn"
+            >Lihat Selengkapnya <i class="fas fa-plus"></i
+          ></a>
         </div>
       </div>
     </section>
@@ -774,13 +916,19 @@
     <!-- Photo Modal -->
     <div class="photo-modal" id="photoModal">
       <div class="modal-content">
-        <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+        <button class="modal-close" id="modalClose">
+          <i class="fas fa-times"></i>
+        </button>
         <div class="modal-counter" id="modalCounter">1 / 10</div>
-        <img src="" alt="" class="modal-img" id="modalImg">
+        <img src="" alt="" class="modal-img" id="modalImg" />
         <div class="modal-caption" id="modalCaption"></div>
         <div class="modal-nav">
-          <button class="modal-prev" id="modalPrev"><i class="fas fa-chevron-left"></i></button>
-          <button class="modal-next" id="modalNext"><i class="fas fa-chevron-right"></i></button>
+          <button class="modal-prev" id="modalPrev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="modal-next" id="modalNext">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -806,22 +954,34 @@
             <h3>Link Cepat</h3>
             <ul>
               <li>
-                <a href="index.html"><i class="fas fa-chevron-right"></i> Beranda</a>
+                <a href="index.html"
+                  ><i class="fas fa-chevron-right"></i> Beranda</a
+                >
               </li>
               <li>
-                <a href="profil.html"><i class="fas fa-chevron-right"></i> Profil</a>
+                <a href="profil.html"
+                  ><i class="fas fa-chevron-right"></i> Profil</a
+                >
               </li>
               <li>
-                <a href="fasilitas.html"><i class="fas fa-chevron-right"></i> Fasilitas</a>
+                <a href="fasilitas.html"
+                  ><i class="fas fa-chevron-right"></i> Fasilitas</a
+                >
               </li>
               <li>
-                <a href="pengumuman.html"><i class="fas fa-chevron-right"></i> Pengumuman</a>
+                <a href="pengumuman.html"
+                  ><i class="fas fa-chevron-right"></i> Pengumuman</a
+                >
               </li>
               <li>
-                <a href="galeri.html"><i class="fas fa-chevron-right"></i> Galeri</a>
+                <a href="galeri.html"
+                  ><i class="fas fa-chevron-right"></i> Galeri</a
+                >
               </li>
               <li>
-                <a href="kontak.html"><i class="fas fa-chevron-right"></i> Kontak</a>
+                <a href="kontak.html"
+                  ><i class="fas fa-chevron-right"></i> Kontak</a
+                >
               </li>
             </ul>
           </div>
@@ -832,7 +992,8 @@
               <div>
                 <h4>Alamat</h4>
                 <p>
-                  Desa Rang Perang Laok, Dusun Timur, Kecamatan Proppo, Kabupaten Pamekasan, Provinsi Jawa Timur, Kode Pos 69363,
+                  Desa Rang Perang Laok, Dusun Timur, Kecamatan Proppo,
+                  Kabupaten Pamekasan, Provinsi Jawa Timur, Kode Pos 69363,
                 </p>
               </div>
             </div>
@@ -873,179 +1034,198 @@
           date: " Maret 2024",
           description: "Kegiatan Peserta Didik di Bulan Suci Ramadhan.",
           photos: [
-          {
-    "id": 1,
-    "src": "img/ramadhan_2025/1.jpg",
-    "title": "Foto 1",
-    "description": "Foto 1"
-  },
-  {
-    "id": 2,
-    "src": "img/ramadhan_2025/2.jpg",
-    "title": "Foto 2",
-    "description": "Foto 2"
-  },
-  {
-    "id": 3,
-    "src": "img/ramadhan_2025/3.jpg",
-    "title": "Foto 3",
-    "description": "Foto 3"
-  },
-  {
-    "id": 4,
-    "src": "img/ramadhan_2025/4.jpg",
-    "title": "Foto 4",
-    "description": "Foto 4"
-  },
-  {
-    "id": 5,
-    "src": "img/ramadhan_2025/5.jpg",
-    "title": "Foto 5",
-    "description": "Foto 5"
-  },
-  {
-    "id": 6,
-    "src": "img/ramadhan_2025/6.jpg",
-    "title": "Foto 6",
-    "description": "Foto 6"
-  },
-  {
-    "id": 7,
-    "src": "img/ramadhan_2025/7.jpg",
-    "title": "Foto 7",
-    "description": "Foto 7"
-  },
-  {
-    "id": 8,
-    "src": "img/ramadhan_2025/8.jpg",
-    "title": "Foto 8",
-    "description": "Foto 8"
-  },
-  {
-    "id": 9,
-    "src": "img/ramadhan_2025/9.jpg",
-    "title": "Foto 9",
-    "description": "Foto 9"
-  },
-  {
-    "id": 10,
-    "src": "img/ramadhan_2025/10.jpg",
-    "title": "Foto 10",
-    "description": "Foto 10"
-  },
-  {
-    "id": 11,
-    "src": "img/ramadhan_2025/11.jpg",
-    "title": "Foto 11",
-    "description": "Foto 11"
-  },
-  {
-    "id": 12,
-    "src": "img/ramadhan_2025/12.jpg",
-    "title": "Foto 12",
-    "description": "Foto 12"
-  }
-          ]
-        },
-        {
-          id: 2,
-          title: "Kegiatan Mewarnai",
-          category: "Kegiatan Belajar",
-          categorySlug: "kegiatan-belajar",
-          date: "5 Februari 2025",
-          description: "Kegiatan mewarnai merupakan salah satu aktivitas rutin yang dilakukan di TK Dharma Wanita Rang Perang Laok. Melalui kegiatan ini, anak-anak dapat mengembangkan kreativitas, motorik halus, dan kemampuan fokus mereka.",
-          photos: [
             {
               id: 1,
-              src: "img/HERO.jpg",
-              title: "Persiapan Kegiatan Mewarnai",
-              description: "Guru menyiapkan bahan-bahan untuk kegiatan mewarnai"
+              src: "img/ramadhan_2025/1.jpg",
+              title: "Foto 1",
+              description: "Foto 1",
             },
             {
               id: 2,
-              src: "img/HERO.jpg",
-              title: "Penjelasan Guru",
-              description: "Guru menjelaskan teknik mewarnai kepada siswa"
+              src: "img/ramadhan_2025/2.jpg",
+              title: "Foto 2",
+              description: "Foto 2",
             },
             {
               id: 3,
-              src: "img/HERO.jpg",
-              title: "Siswa Fokus Mewarnai",
-              description: "Siswa fokus mewarnai gambar-gambar yang telah disediakan"
+              src: "img/ramadhan_2025/3.jpg",
+              title: "Foto 3",
+              description: "Foto 3",
             },
             {
               id: 4,
-              src: "img/HERO.jpg",
-              title: "Kegiatan di Kelas",
-              description: "Suasana kelas saat kegiatan mewarnai berlangsung"
+              src: "img/ramadhan_2025/4.jpg",
+              title: "Foto 4",
+              description: "Foto 4",
             },
             {
               id: 5,
-              src: "img/HERO.jpg",
-              title: "Siswa Menunjukkan Hasil Karyanya",
-              description: "Seorang siswa dengan bangga menunjukkan hasil mewarnainya"
+              src: "img/ramadhan_2025/5.jpg",
+              title: "Foto 5",
+              description: "Foto 5",
             },
             {
               id: 6,
-              src: "img/HERO.jpg",
-              title: "Kelompok Mewarnai",
-              description: "Siswa mewarnai dalam kelompok kecil"
+              src: "img/ramadhan_2025/6.jpg",
+              title: "Foto 6",
+              description: "Foto 6",
             },
             {
               id: 7,
-              src: "img/HERO.jpg",
-              title: "Gurur Membimbing Siswa",
-              description: "Guru membantu siswa yang kesulitan dalam mewarnai"
+              src: "img/ramadhan_2025/7.jpg",
+              title: "Foto 7",
+              description: "Foto 7",
             },
             {
               id: 8,
-              src: "img/HERO.jpg",
-              title: "Hasil Karya Mewarnai",
-              description: "Kumpulan hasil karya mewarnai siswa dipajang di dinding kelas"
+              src: "img/ramadhan_2025/8.jpg",
+              title: "Foto 8",
+              description: "Foto 8",
             },
             {
               id: 9,
-              src: "img/HERO.jpg",
-              title: "Eksplorasi Warna",
-              description: "Siswa belajar mencampur warna-warna dasar"
+              src: "img/ramadhan_2025/9.jpg",
+              title: "Foto 9",
+              description: "Foto 9",
             },
             {
               id: 10,
-              src: "img/HERO.jpg",
-              title: "Anak-anak Mewarnai",
-              description: "Anak-anak asik mewarnai dengan crayon"
+              src: "img/ramadhan_2025/10.jpg",
+              title: "Foto 10",
+              description: "Foto 10",
             },
             {
               id: 11,
-              src: "img/HERO.jpg",
-              title: "Mewarnai dengan Tema Alam",
-              description: "Siswa mewarnai gambar-gambar bertema alam"
+              src: "img/ramadhan_2025/11.jpg",
+              title: "Foto 11",
+              description: "Foto 11",
             },
             {
               id: 12,
-              src: "img/HERO.jpg",
-              title: "Apresiasi Guru",
-              description: "Guru memberikan apresiasi pada hasil karya siswa"
+              src: "img/ramadhan_2025/12.jpg",
+              title: "Foto 12",
+              description: "Foto 12",
             },
-            {
-              id: 13,
-              src: "img/HERO.jpg",
-              title: "Siswa Bekerja Sama",
-              description: "Siswa saling meminjamkan crayon dan bekerja sama"
-            },
-            {
-              id: 14,
-              src: "img/HERO.jpg",
-              title: "Kreativitas Tanpa Batas",
-              description: "Siswa diberi kebebasan untuk berekspresi dalam mewarnai"
-            },
-            {
-              id: 15,
-              src: "img/HERO.jpg",
-              title: "Pameran Hasil Mewarnai",
-              description: "Pameran mini hasil karya mewarnai di akhir kegiatan"
-            }
-          ]
+          ],
+        },
+        {
+          id: 2,
+          title: "Kegiatan Merancang Bunga",
+          category: "Kegiatan Belajar",
+          categorySlug: "kegiatan-belajar",
+          date: "4 Februari 2025",
+          description:
+            "Kegiatan merancang bunga merupakan salah satu aktivitas rutin yang dilakukan di TK Dharma Wanita Rang Perang Laok. Melalui kegiatan ini, anak-anak dapat mengembangkan kreativitas, motorik halus, dan kemampuan fokus mereka.",
+          photos: [
+  {
+    id: 1,
+    src: "img/Kegiatan_belajar/1.jpg",
+    title: "Kegiatan Merancang Bunga 1",
+    description: "Guru menyiapkan bahan-bahan untuk kegiatan mewarnai",
+  },
+  {
+    id: 2,
+    src: "img/Kegiatan_belajar/2.jpg",
+    title: "Kegiatan Merancang Bunga 2",
+    description: "Guru menjelaskan teknik mewarnai kepada siswa",
+  },
+  {
+    id: 3,
+    src: "img/Kegiatan_belajar/3.jpg",
+    title: "Kegiatan Merancang Bunga 3",
+    description: "Siswa fokus mewarnai gambar-gambar yang telah disediakan",
+  },
+  {
+    id: 4,
+    src: "img/Kegiatan_belajar/4.jpg",
+    title: "Kegiatan Merancang Bunga 4",
+    description: "Suasana kelas saat kegiatan mewarnai berlangsung",
+  },
+  {
+    id: 5,
+    src: "img/Kegiatan_belajar/5.jpg",
+    title: "Kegiatan Merancang Bunga 5",
+    description: "Seorang siswa dengan bangga menunjukkan hasil mewarnainya",
+  },
+  {
+    id: 6,
+    src: "img/Kegiatan_belajar/6.jpg",
+    title: "Kegiatan Merancang Bunga 6",
+    description: "Siswa mewarnai dalam kelompok kecil",
+  },
+  {
+    id: 7,
+    src: "img/Kegiatan_belajar/7.jpg",
+    title: "Kegiatan Merancang Bunga 7",
+    description: "Guru membantu siswa yang kesulitan dalam mewarnai",
+  },
+  {
+    id: 8,
+    src: "img/Kegiatan_belajar/8.jpg",
+    title: "Kegiatan Merancang Bunga 8",
+    description: "Kumpulan hasil karya mewarnai siswa dipajang di dinding kelas",
+  },
+  {
+    id: 9,
+    src: "img/Kegiatan_belajar/9.jpg",
+    title: "Kegiatan Merancang Bunga 9",
+    description: "Siswa belajar mencampur warna-warna dasar",
+  },
+  {
+    id: 10,
+    src: "img/Kegiatan_belajar/10.jpg",
+    title: "Kegiatan Merancang Bunga 10",
+    description: "Anak-anak asik mewarnai dengan crayon",
+  },
+  {
+    id: 11,
+    src: "img/Kegiatan_belajar/11.jpg",
+    title: "Kegiatan Merancang Bunga 11",
+    description: "Siswa mewarnai gambar-gambar bertema alam",
+  },
+  {
+    id: 12,
+    src: "img/Kegiatan_belajar/12.jpg",
+    title: "Kegiatan Merancang Bunga 12",
+    description: "Guru memberikan apresiasi pada hasil karya siswa",
+  },
+  {
+    id: 13,
+    src: "img/Kegiatan_belajar/13.jpg",
+    title: "Kegiatan Merancang Bunga 13",
+    description: "Siswa saling meminjamkan crayon dan bekerja sama",
+  },
+  {
+    id: 14,
+    src: "img/Kegiatan_belajar/14.jpg",
+    title: "Kegiatan Merancang Bunga 14",
+    description: "Siswa diberi kebebasan untuk berekspresi dalam mewarnai",
+  },
+  {
+    id: 15,
+    src: "img/Kegiatan_belajar/15.jpg",
+    title: "Kegiatan Merancang Bunga 15",
+    description: "Pameran mini hasil karya mewarnai di akhir kegiatan",
+  },
+  {
+    id: 16,
+    src: "img/Kegiatan_belajar/16.jpg",
+    title: "Kegiatan Merancang Bunga 16",
+    description: "Pameran mini hasil karya mewarnai di akhir kegiatan",
+  },
+  {
+    id: 17,
+    src: "img/Kegiatan_belajar/17.jpg",
+    title: "Kegiatan Merancang Bunga 17",
+    description: "Pameran mini hasil karya mewarnai di akhir kegiatan",
+  },
+  {
+    id: 18,
+    src: "img/Kegiatan_belajar/18.jpg",
+    title: "Kegiatan Merancang Bunga 18",
+    description: "Pameran mini hasil karya mewarnai di akhir kegiatan",
+  }
+],
         },
         {
           id: 3,
@@ -1053,81 +1233,83 @@
           category: "Ekstrakurikuler",
           categorySlug: "ekstrakurikuler",
           date: "18 Januari 2025",
-          description: "Ekstrakurikuler tari tradisional merupakan salah satu kegiatan yang sangat diminati di TK Dharma Wanita Rang Perang Laok. Melalui kegiatan ini, siswa-siswi dapat mengenal dan melestarikan kebudayaan Indonesia, khususnya seni tari tradisional.",
+          description:
+            "Ekstrakurikuler tari tradisional merupakan salah satu kegiatan yang sangat diminati di TK Dharma Wanita Rang Perang Laok. Melalui kegiatan ini, siswa-siswi dapat mengenal dan melestarikan kebudayaan Indonesia, khususnya seni tari tradisional.",
           photos: [
             {
               id: 1,
               src: "img/HERO.jpg",
               title: "Persiapan Latihan",
-              description: "Siswa bersiap-siap sebelum memulai latihan tari"
+              description: "Siswa bersiap-siap sebelum memulai latihan tari",
             },
             {
               id: 2,
               src: "img/HERO.jpg",
               title: "Pemanasan",
-              description: "Siswa melakukan pemanasan sebelum latihan tari"
+              description: "Siswa melakukan pemanasan sebelum latihan tari",
             },
             {
               id: 3,
               src: "img/HERO.jpg",
               title: "Guru Mencontohkan Gerakan",
-              description: "Guru tari mencontohkan gerakan dasar tari tradisional"
+              description:
+                "Guru tari mencontohkan gerakan dasar tari tradisional",
             },
             {
               id: 4,
               src: "img/HERO.jpg",
               title: "Latihan Bersama",
-              description: "Siswa berlatih gerakan tari secara bersama-sama"
+              description: "Siswa berlatih gerakan tari secara bersama-sama",
             },
             {
               id: 5,
               src: "img/HERO.jpg",
               title: "Latihan dengan Properti",
-              description: "Siswa berlatih menggunakan properti tari"
+              description: "Siswa berlatih menggunakan properti tari",
             },
             {
               id: 6,
               src: "img/HERO.jpg",
               title: "Koordinasi Gerakan",
-              description: "Siswa belajar mengkoordinasikan gerakan tari"
+              description: "Siswa belajar mengkoordinasikan gerakan tari",
             },
             {
               id: 7,
               src: "img/HERO.jpg",
               title: "Latihan Formasi",
-              description: "Siswa berlatih formasi dalam tari berkelompok"
+              description: "Siswa berlatih formasi dalam tari berkelompok",
             },
             {
               id: 8,
               src: "img/HERO.jpg",
               title: "Ekspresi Menari",
-              description: "Siswa belajar mengekspresikan emosi melalui tarian"
+              description: "Siswa belajar mengekspresikan emosi melalui tarian",
             },
             {
               id: 9,
               src: "img/HERO.jpg",
               title: "Pengenalan Kostum",
-              description: "Siswa dikenalkan dengan kostum tari tradisional"
+              description: "Siswa dikenalkan dengan kostum tari tradisional",
             },
             {
               id: 10,
               src: "img/HERO.jpg",
               title: "Apresiasi Setelah Latihan",
-              description: "Guru memberikan apresiasi setelah latihan"
+              description: "Guru memberikan apresiasi setelah latihan",
             },
             {
               id: 11,
               src: "img/HERO.jpg",
               title: "Dokumentasi Latihan",
-              description: "Dokumentasi kemajuan latihan tari siswa"
+              description: "Dokumentasi kemajuan latihan tari siswa",
             },
             {
               id: 12,
               src: "img/HERO.jpg",
               title: "Evaluasi Latihan",
-              description: "Evaluasi bersama setelah latihan tari"
-            }
-          ]
+              description: "Evaluasi bersama setelah latihan tari",
+            },
+          ],
         },
         {
           id: 4,
@@ -1135,57 +1317,59 @@
           category: "Lomba & Prestasi",
           categorySlug: "lomba-prestasi",
           date: "10 Desember 2024",
-          description: "TK Dharma Wanita Rang Perang Laok berpartisipasi dalam lomba mewarnai tingkat kecamatan. Siswa-siswi kami menunjukkan bakat dan kreativitas mereka dalam lomba tersebut dan berhasil meraih beberapa penghargaan.",
+          description:
+            "TK Dharma Wanita Rang Perang Laok berpartisipasi dalam lomba mewarnai tingkat kecamatan. Siswa-siswi kami menunjukkan bakat dan kreativitas mereka dalam lomba tersebut dan berhasil meraih beberapa penghargaan.",
           photos: [
             {
               id: 1,
               src: "img/HERO.jpg",
               title: "Pembukaan Lomba",
-              description: "Upacara pembukaan lomba mewarnai tingkat kecamatan"
+              description: "Upacara pembukaan lomba mewarnai tingkat kecamatan",
             },
             {
               id: 2,
               src: "img/HERO.jpg",
               title: "Persiapan Lomba",
-              description: "Siswa-siswi TK Dharma Wanita mempersiapkan diri sebelum lomba"
+              description:
+                "Siswa-siswi TK Dharma Wanita mempersiapkan diri sebelum lomba",
             },
             {
               id: 3,
               src: "img/HERO.jpg",
               title: "Suasana Lomba",
-              description: "Suasana saat lomba mewarnai berlangsung"
+              description: "Suasana saat lomba mewarnai berlangsung",
             },
             {
               id: 4,
               src: "img/HERO.jpg",
               title: "Guru Mendampingi",
-              description: "Guru-guru mendampingi siswa selama lomba"
+              description: "Guru-guru mendampingi siswa selama lomba",
             },
             {
               id: 5,
               src: "img/HERO.jpg",
               title: "Hasil Karya Lomba",
-              description: "Hasil karya siswa dalam lomba mewarnai"
+              description: "Hasil karya siswa dalam lomba mewarnai",
             },
             {
               id: 6,
               src: "img/HERO.jpg",
               title: "Penilaian Juri",
-              description: "Juri sedang menilai hasil karya peserta lomba"
+              description: "Juri sedang menilai hasil karya peserta lomba",
             },
             {
               id: 7,
               src: "img/HERO.jpg",
               title: "Pengumuman Pemenang",
-              description: "Pengumuman pemenang lomba mewarnai"
+              description: "Pengumuman pemenang lomba mewarnai",
             },
             {
               id: 8,
               src: "img/HERO.jpg",
               title: "Penyerahan Piala",
-              description: "Siswa TK Dharma Wanita menerima piala kejuaraan"
-            }
-          ]
+              description: "Siswa TK Dharma Wanita menerima piala kejuaraan",
+            },
+          ],
         },
         {
           id: 5,
@@ -1193,129 +1377,131 @@
           category: "Acara Sekolah",
           categorySlug: "acara-sekolah",
           date: "15 Desember 2024",
-          description: "Pentas seni akhir tahun merupakan acara tahunan yang diselenggarakan oleh TK Dharma Wanita Rang Perang Laok. Acara ini menampilkan berbagai pertunjukan seni dari siswa-siswi sebagai bentuk apresiasi terhadap prestasi mereka selama satu tahun ajaran.",
+          description:
+            "Pentas seni akhir tahun merupakan acara tahunan yang diselenggarakan oleh TK Dharma Wanita Rang Perang Laok. Acara ini menampilkan berbagai pertunjukan seni dari siswa-siswi sebagai bentuk apresiasi terhadap prestasi mereka selama satu tahun ajaran.",
           photos: [
             {
               id: 1,
               src: "img/HERO.jpg",
               title: "Persiapan Pentas",
-              description: "Persiapan panggung untuk pentas seni akhir tahun"
+              description: "Persiapan panggung untuk pentas seni akhir tahun",
             },
             {
               id: 2,
               src: "img/HERO.jpg",
               title: "Sambutan Kepala Sekolah",
-              description: "Kepala Sekolah memberikan sambutan pembukaan acara"
+              description: "Kepala Sekolah memberikan sambutan pembukaan acara",
             },
             {
               id: 3,
               src: "img/HERO.jpg",
               title: "Penampilan Tari",
-              description: "Siswa menampilkan tarian tradisional"
+              description: "Siswa menampilkan tarian tradisional",
             },
             {
               id: 4,
               src: "img/HERO.jpg",
               title: "Drama Anak",
-              description: "Siswa menampilkan drama anak-anak"
+              description: "Siswa menampilkan drama anak-anak",
             },
             {
               id: 5,
               src: "img/HERO.jpg",
               title: "Paduan Suara",
-              description: "Penampilan paduan suara siswa-siswi TK"
+              description: "Penampilan paduan suara siswa-siswi TK",
             },
             {
               id: 6,
               src: "img/HERO.jpg",
               title: "Fashion Show",
-              description: "Fashion show pakaian tradisional oleh siswa"
+              description: "Fashion show pakaian tradisional oleh siswa",
             },
             {
               id: 7,
               src: "img/HERO.jpg",
               title: "Tamu Undangan",
-              description: "Para tamu undangan yang hadir pada acara"
+              description: "Para tamu undangan yang hadir pada acara",
             },
             {
               id: 8,
               src: "img/HERO.jpg",
               title: "Pembagian Raport",
-              description: "Pembagian raport siswa di akhir acara"
+              description: "Pembagian raport siswa di akhir acara",
             },
             {
               id: 9,
               src: "img/HERO.jpg",
               title: "Pameran Karya",
-              description: "Pameran hasil karya siswa selama satu semester"
+              description: "Pameran hasil karya siswa selama satu semester",
             },
             {
               id: 10,
               src: "img/HERO.jpg",
               title: "Perpisahan TK B",
-              description: "Acara perpisahan untuk siswa-siswi TK B"
+              description: "Acara perpisahan untuk siswa-siswi TK B",
             },
             {
               id: 11,
               src: "img/HERO.jpg",
               title: "Penampilan Musik",
-              description: "Siswa menampilkan keahlian bermain alat musik"
+              description: "Siswa menampilkan keahlian bermain alat musik",
             },
             {
               id: 12,
               src: "img/HERO.jpg",
               title: "Pembagian Hadiah",
-              description: "Pembagian hadiah untuk siswa berprestasi"
+              description: "Pembagian hadiah untuk siswa berprestasi",
             },
             {
               id: 13,
               src: "img/HERO.jpg",
               title: "Pelepasan Balon",
-              description: "Acara pelepasan balon sebagai simbol perpisahan"
+              description: "Acara pelepasan balon sebagai simbol perpisahan",
             },
             {
               id: 14,
               src: "img/HERO.jpg",
               title: "Foto Bersama",
-              description: "Foto bersama seluruh siswa dan guru"
+              description: "Foto bersama seluruh siswa dan guru",
             },
             {
               id: 15,
               src: "img/HERO.jpg",
               title: "Persiapan Siswa",
-              description: "Siswa bersiap untuk tampil di panggung"
+              description: "Siswa bersiap untuk tampil di panggung",
             },
             {
               id: 16,
               src: "img/HERO.jpg",
               title: "Dekorasi Acara",
-              description: "Dekorasi ruangan untuk pentas seni"
+              description: "Dekorasi ruangan untuk pentas seni",
             },
             {
               id: 17,
               src: "img/HERO.jpg",
               title: "Guru dan Siswa",
-              description: "Interaksi guru dan siswa selama acara"
+              description: "Interaksi guru dan siswa selama acara",
             },
             {
               id: 18,
               src: "img/HERO.jpg",
               title: "Orang Tua Siswa",
-              description: "Antusiasme orang tua menyaksikan penampilan anak-anak"
+              description:
+                "Antusiasme orang tua menyaksikan penampilan anak-anak",
             },
             {
               id: 19,
               src: "img/HERO.jpg",
               title: "Penutupan Acara",
-              description: "Upacara penutupan pentas seni akhir tahun"
+              description: "Upacara penutupan pentas seni akhir tahun",
             },
             {
               id: 20,
               src: "img/HERO.jpg",
               title: "Acara Ramah Tamah",
-              description: "Acara ramah tamah setelah pentas seni selesai"
-            }
-          ]
+              description: "Acara ramah tamah setelah pentas seni selesai",
+            },
+          ],
         },
         {
           id: 6,
@@ -1323,69 +1509,73 @@
           category: "Kegiatan Belajar",
           categorySlug: "kegiatan-belajar",
           date: "28 November 2024",
-          description: "Kegiatan bermain di luar kelas merupakan bagian penting dari metode pembelajaran di TK Dharma Wanita Rang Perang Laok. Melalui kegiatan ini, siswa dapat belajar sambil bermain, mengeksplorasi lingkungan, dan mengembangkan keterampilan sosial mereka.",
+          description:
+            "Kegiatan bermain di luar kelas merupakan bagian penting dari metode pembelajaran di TK Dharma Wanita Rang Perang Laok. Melalui kegiatan ini, siswa dapat belajar sambil bermain, mengeksplorasi lingkungan, dan mengembangkan keterampilan sosial mereka.",
           photos: [
             {
               id: 1,
               src: "img/HERO.jpg",
               title: "Permainan Tradisional",
-              description: "Siswa bermain permainan tradisional di halaman sekolah"
+              description:
+                "Siswa bermain permainan tradisional di halaman sekolah",
             },
             {
               id: 2,
               src: "img/HERO.jpg",
               title: "Eksplorasi Alam",
-              description: "Siswa mengeksplorasi tanaman di sekitar sekolah"
+              description: "Siswa mengeksplorasi tanaman di sekitar sekolah",
             },
             {
               id: 3,
               src: "img/HERO.jpg",
               title: "Bermain Pasir",
-              description: "Siswa bermain di area pasir"
+              description: "Siswa bermain di area pasir",
             },
             {
               id: 4,
               src: "img/HERO.jpg",
               title: "Permainan Kelompok",
-              description: "Siswa bermain permainan kelompok dengan bimbingan guru"
+              description:
+                "Siswa bermain permainan kelompok dengan bimbingan guru",
             },
             {
               id: 5,
               src: "img/HERO.jpg",
               title: "Aktivitas Air",
-              description: "Siswa bermain dengan air dalam kegiatan pembelajaran"
+              description:
+                "Siswa bermain dengan air dalam kegiatan pembelajaran",
             },
             {
               id: 6,
               src: "img/HERO.jpg",
               title: "Olahraga Kecil",
-              description: "Kegiatan olahraga ringan di luar kelas"
+              description: "Kegiatan olahraga ringan di luar kelas",
             },
             {
               id: 7,
               src: "img/HERO.jpg",
               title: "Bermain Peran",
-              description: "Siswa bermain peran di area bermain outdoor"
+              description: "Siswa bermain peran di area bermain outdoor",
             },
             {
               id: 8,
               src: "img/HERO.jpg",
               title: "Mengamati Serangga",
-              description: "Siswa belajar mengamati serangga di taman sekolah"
+              description: "Siswa belajar mengamati serangga di taman sekolah",
             },
             {
               id: 9,
               src: "img/HERO.jpg",
               title: "Berkebun Mini",
-              description: "Kegiatan berkebun mini di lahan sekolah"
+              description: "Kegiatan berkebun mini di lahan sekolah",
             },
             {
               id: 10,
               src: "img/HERO.jpg",
               title: "Istirahat di Luar",
-              description: "Siswa beristirahat di bawah pohon setelah bermain"
-            }
-          ]
+              description: "Siswa beristirahat di bawah pohon setelah bermain",
+            },
+          ],
         },
         {
           id: 7,
@@ -1393,93 +1583,97 @@
           category: "Ekstrakurikuler",
           categorySlug: "ekstrakurikuler",
           date: "5 November 2024",
-          description: "Ekstrakurikuler menggambar dan melukis bertujuan untuk mengembangkan kreativitas dan bakat seni siswa TK Dharma Wanita Rang Perang Laok. Kegiatan ini dilaksanakan secara rutin dengan bimbingan guru yang berkompeten di bidang seni rupa.",
+          description:
+            "Ekstrakurikuler menggambar dan melukis bertujuan untuk mengembangkan kreativitas dan bakat seni siswa TK Dharma Wanita Rang Perang Laok. Kegiatan ini dilaksanakan secara rutin dengan bimbingan guru yang berkompeten di bidang seni rupa.",
           photos: [
             {
               id: 1,
               src: "img/HERO.jpg",
               title: "Perkenalan Alat Lukis",
-              description: "Siswa diperkenalkan dengan berbagai alat lukis"
+              description: "Siswa diperkenalkan dengan berbagai alat lukis",
             },
             {
               id: 2,
               src: "img/HERO.jpg",
               title: "Teknik Dasar Menggambar",
-              description: "Guru menjelaskan teknik dasar menggambar kepada siswa"
+              description:
+                "Guru menjelaskan teknik dasar menggambar kepada siswa",
             },
             {
               id: 3,
               src: "img/HERO.jpg",
               title: "Melukis dengan Jari",
-              description: "Siswa mencoba teknik melukis dengan jari (finger painting)"
+              description:
+                "Siswa mencoba teknik melukis dengan jari (finger painting)",
             },
             {
               id: 4,
               src: "img/HERO.jpg",
               title: "Menggambar Pemandangan",
-              description: "Siswa menggambar pemandangan alam"
+              description: "Siswa menggambar pemandangan alam",
             },
             {
               id: 5,
               src: "img/HERO.jpg",
               title: "Mencampur Warna",
-              description: "Siswa belajar mencampur warna-warna dasar"
+              description: "Siswa belajar mencampur warna-warna dasar",
             },
             {
               id: 6,
               src: "img/HERO.jpg",
               title: "Pameran Mini",
-              description: "Pameran hasil karya siswa di kelas"
+              description: "Pameran hasil karya siswa di kelas",
             },
             {
               id: 7,
               src: "img/HERO.jpg",
               title: "Melukis di Kanvas",
-              description: "Siswa mencoba melukis di kanvas kecil"
+              description: "Siswa mencoba melukis di kanvas kecil",
             },
             {
               id: 8,
               src: "img/HERO.jpg",
               title: "Kelas Outdoor",
-              description: "Kegiatan menggambar di luar ruangan"
+              description: "Kegiatan menggambar di luar ruangan",
             },
             {
               id: 9,
               src: "img/HERO.jpg",
               title: "Menggambar Bentuk",
-              description: "Siswa belajar menggambar bentuk-bentuk dasar"
+              description: "Siswa belajar menggambar bentuk-bentuk dasar",
             },
             {
               id: 10,
               src: "img/HERO.jpg",
               title: "Apresiasi Karya",
-              description: "Siswa saling mengapresiasi hasil karya teman-temannya"
+              description:
+                "Siswa saling mengapresiasi hasil karya teman-temannya",
             },
             {
               id: 11,
               src: "img/HERO.jpg",
               title: "Kolase Gambar",
-              description: "Siswa membuat kolase dari berbagai potongan gambar"
+              description: "Siswa membuat kolase dari berbagai potongan gambar",
             },
             {
               id: 12,
               src: "img/HERO.jpg",
               title: "Hasil Karya Lukisan",
-              description: "Kumpulan hasil karya lukisan siswa"
+              description: "Kumpulan hasil karya lukisan siswa",
             },
             {
               id: 13,
               src: "img/HERO.jpg",
               title: "Menggambar Bebas",
-              description: "Siswa menggambar sesuai imajinasi mereka"
+              description: "Siswa menggambar sesuai imajinasi mereka",
             },
             {
               id: 14,
               src: "img/HERO.jpg",
               title: "Evaluasi Karya",
-              description: "Guru memberikan evaluasi pada hasil karya siswa"
-            }
-          ]
+              description: "Guru memberikan evaluasi pada hasil karya siswa",
+            },
+          ],
         },
         {
           id: 8,
@@ -1487,117 +1681,119 @@
           category: "Acara Sekolah",
           categorySlug: "acara-sekolah",
           date: "22 Oktober 2024",
-          description: "TK Dharma Wanita Rang Perang Laok mengadakan kunjungan edukasi ke museum lokal sebagai bagian dari pembelajaran di luar sekolah. Kegiatan ini bertujuan untuk mengenalkan siswa pada sejarah dan kebudayaan daerah.",
+          description:
+            "TK Dharma Wanita Rang Perang Laok mengadakan kunjungan edukasi ke museum lokal sebagai bagian dari pembelajaran di luar sekolah. Kegiatan ini bertujuan untuk mengenalkan siswa pada sejarah dan kebudayaan daerah.",
           photos: [
             {
               id: 1,
               src: "img/HERO.jpg",
               title: "Kedatangan di Museum",
-              description: "Siswa dan guru tiba di museum"
+              description: "Siswa dan guru tiba di museum",
             },
             {
               id: 2,
               src: "img/HERO.jpg",
               title: "Penjelasan Pemandu",
-              description: "Pemandu museum menjelaskan koleksi museum kepada siswa"
+              description:
+                "Pemandu museum menjelaskan koleksi museum kepada siswa",
             },
             {
               id: 3,
               src: "img/HERO.jpg",
               title: "Melihat Artefak",
-              description: "Siswa mengamati artefak bersejarah"
+              description: "Siswa mengamati artefak bersejarah",
             },
             {
               id: 4,
               src: "img/HERO.jpg",
               title: "Siswa di Galeri Sejarah",
-              description: "Siswa mengunjungi galeri sejarah di museum"
+              description: "Siswa mengunjungi galeri sejarah di museum",
             },
             {
               id: 5,
               src: "img/HERO.jpg",
               title: "Tanya Jawab dengan Pemandu",
-              description: "Siswa aktif bertanya kepada pemandu museum"
+              description: "Siswa aktif bertanya kepada pemandu museum",
             },
             {
               id: 6,
               src: "img/HERO.jpg",
               title: "Mencatat Informasi",
-              description: "Guru membantu siswa mencatat informasi penting"
+              description: "Guru membantu siswa mencatat informasi penting",
             },
             {
               id: 7,
               src: "img/HERO.jpg",
               title: "Foto Bersama",
-              description: "Foto bersama di depan museum"
+              description: "Foto bersama di depan museum",
             },
             {
               id: 8,
               src: "img/HERO.jpg",
               title: "Istirahat Makan",
-              description: "Siswa beristirahat dan makan siang"
+              description: "Siswa beristirahat dan makan siang",
             },
             {
               id: 9,
               src: "img/HERO.jpg",
               title: "Workshop Mini",
-              description: "Siswa mengikuti workshop mini di museum"
+              description: "Siswa mengikuti workshop mini di museum",
             },
             {
               id: 10,
               src: "img/HERO.jpg",
               title: "Melihat Diorama",
-              description: "Siswa mengamati diorama sejarah"
+              description: "Siswa mengamati diorama sejarah",
             },
             {
               id: 11,
               src: "img/HERO.jpg",
               title: "Koleksi Benda Tradisional",
-              description: "Siswa melihat koleksi benda-benda tradisional"
+              description: "Siswa melihat koleksi benda-benda tradisional",
             },
             {
               id: 12,
               src: "img/HERO.jpg",
               title: "Bermain Edukatif",
-              description: "Siswa bermain permainan edukatif di museum"
+              description: "Siswa bermain permainan edukatif di museum",
             },
             {
               id: 13,
               src: "img/HERO.jpg",
               title: "Toko Souvenir",
-              description: "Mengunjungi toko souvenir museum"
+              description: "Mengunjungi toko souvenir museum",
             },
             {
               id: 14,
               src: "img/HERO.jpg",
               title: "Diskusi Kelompok",
-              description: "Siswa berdiskusi tentang apa yang telah dipelajari"
+              description: "Siswa berdiskusi tentang apa yang telah dipelajari",
             },
             {
               id: 15,
               src: "img/HERO.jpg",
               title: "Kesan Pesan",
-              description: "Siswa menyampaikan kesan pesan setelah kunjungan"
+              description: "Siswa menyampaikan kesan pesan setelah kunjungan",
             },
             {
               id: 16,
               src: "img/HERO.jpg",
               title: "Perjalanan Pulang",
-              description: "Siswa dalam perjalanan pulang dari museum"
+              description: "Siswa dalam perjalanan pulang dari museum",
             },
             {
               id: 17,
               src: "img/HERO.jpg",
               title: "Refleksi Kegiatan",
-              description: "Refleksi kegiatan di akhir kunjungan"
+              description: "Refleksi kegiatan di akhir kunjungan",
             },
             {
               id: 18,
               src: "img/HERO.jpg",
               title: "Pengalaman Baru",
-              description: "Ekspresi senang siswa mendapat pengalaman baru"
-            }
-          ]
+              description: "Ekspresi senang siswa mendapat pengalaman baru",
+            },
+          ],
         },
         {
           id: 9,
@@ -1605,152 +1801,162 @@
           category: "Lomba & Prestasi",
           categorySlug: "lomba-prestasi",
           date: "10 Oktober 2024",
-          description: "Siswa-siswi TK Dharma Wanita Rang Perang Laok berhasil meraih juara dalam lomba menari tradisional tingkat kabupaten. Prestasi ini merupakan hasil dari latihan keras dan dedikasi para siswa serta bimbingan dari guru tari.",
+          description:
+            "Siswa-siswi TK Dharma Wanita Rang Perang Laok berhasil meraih juara dalam lomba menari tradisional tingkat kabupaten. Prestasi ini merupakan hasil dari latihan keras dan dedikasi para siswa serta bimbingan dari guru tari.",
           photos: [
             {
               id: 1,
               src: "img/HERO.jpg",
               title: "Persiapan Lomba",
-              description: "Siswa bersiap-siap sebelum tampil di lomba"
+              description: "Siswa bersiap-siap sebelum tampil di lomba",
             },
             {
               id: 2,
               src: "img/HERO.jpg",
               title: "Penampilan Tari",
-              description: "Siswa menampilkan tarian tradisional dalam lomba"
+              description: "Siswa menampilkan tarian tradisional dalam lomba",
             },
             {
               id: 3,
               src: "img/HERO.jpg",
               title: "Properti Tari",
-              description: "Properti tari yang digunakan dalam penampilan"
+              description: "Properti tari yang digunakan dalam penampilan",
             },
             {
               id: 4,
               src: "img/HERO.jpg",
               title: "Tim Penari",
-              description: "Tim penari TK Dharma Wanita Rang Perang Laok"
+              description: "Tim penari TK Dharma Wanita Rang Perang Laok",
             },
             {
               id: 5,
               src: "img/HERO.jpg",
               title: "Pengumuman Juara",
-              description: "Saat pengumuman juara lomba menari"
+              description: "Saat pengumuman juara lomba menari",
             },
             {
               id: 6,
               src: "img/HERO.jpg",
               title: "Penyerahan Piala",
-              description: "Siswa menerima piala kejuaraan"
-            }
-          ]
-        }
+              description: "Siswa menerima piala kejuaraan",
+            },
+          ],
+        },
       ];
 
       // Mobile navigation toggle
-      document.getElementById('mobileToggle').addEventListener('click', function() {
-        document.getElementById('navContainer').classList.toggle('active');
-      });
+      document
+        .getElementById("mobileToggle")
+        .addEventListener("click", function () {
+          document.getElementById("navContainer").classList.toggle("active");
+        });
 
       // Filter functionality
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      const galleryItems = document.querySelectorAll('.gallery-album');
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const galleryItems = document.querySelectorAll(".gallery-album");
 
-      filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", function () {
           // Remove active class from all buttons
-          filterButtons.forEach(btn => btn.classList.remove('active'));
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
           // Add active class to clicked button
-          this.classList.add('active');
-          
-          const filterValue = this.getAttribute('data-filter');
-          
-          galleryItems.forEach(item => {
-            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-              item.style.display = 'block';
+          this.classList.add("active");
+
+          const filterValue = this.getAttribute("data-filter");
+
+          galleryItems.forEach((item) => {
+            if (
+              filterValue === "all" ||
+              item.getAttribute("data-category") === filterValue
+            ) {
+              item.style.display = "block";
             } else {
-              item.style.display = 'none';
+              item.style.display = "none";
             }
           });
         });
       });
 
       // Album view functionality
-      const albumView = document.getElementById('albumView');
-      const albumViewTitle = document.getElementById('albumViewTitle');
-      const albumViewCategory = document.getElementById('albumViewCategory');
-      const albumDescription = document.getElementById('albumDescription');
-      const albumGrid = document.getElementById('albumGrid');
-      const backToAlbumsBtn = document.getElementById('backToAlbums');
-      const galleryContainer = document.getElementById('galleryContainer');
+      const albumView = document.getElementById("albumView");
+      const albumViewTitle = document.getElementById("albumViewTitle");
+      const albumViewCategory = document.getElementById("albumViewCategory");
+      const albumDescription = document.getElementById("albumDescription");
+      const albumGrid = document.getElementById("albumGrid");
+      const backToAlbumsBtn = document.getElementById("backToAlbums");
+      const galleryContainer = document.getElementById("galleryContainer");
 
       // Album click event
-      const galleryAlbums = document.querySelectorAll('.gallery-album');
-      galleryAlbums.forEach(album => {
-        album.addEventListener('click', function() {
-          const albumId = parseInt(this.getAttribute('data-album-id'));
-          const selectedAlbum = albumsData.find(album => album.id === albumId);
-          
+      const galleryAlbums = document.querySelectorAll(".gallery-album");
+      galleryAlbums.forEach((album) => {
+        album.addEventListener("click", function () {
+          const albumId = parseInt(this.getAttribute("data-album-id"));
+          const selectedAlbum = albumsData.find(
+            (album) => album.id === albumId
+          );
+
           if (selectedAlbum) {
             // Populate album view
             albumViewTitle.textContent = selectedAlbum.title;
             albumViewCategory.textContent = selectedAlbum.category;
             albumDescription.textContent = selectedAlbum.description;
-            
+
             // Clear and populate album grid
-            albumGrid.innerHTML = '';
-            selectedAlbum.photos.forEach(photo => {
-              const photoElement = document.createElement('div');
-              photoElement.className = 'album-photo';
-              photoElement.setAttribute('data-photo-id', photo.id);
-              
+            albumGrid.innerHTML = "";
+            selectedAlbum.photos.forEach((photo) => {
+              const photoElement = document.createElement("div");
+              photoElement.className = "album-photo";
+              photoElement.setAttribute("data-photo-id", photo.id);
+
               photoElement.innerHTML = `
                 <img src="${photo.src}" alt="${photo.title}">
                 <div class="photo-info">
                   <h4 class="photo-title">${photo.title}</h4>
                 </div>
               `;
-              
+
               // Add click event to open modal
-              photoElement.addEventListener('click', function() {
+              photoElement.addEventListener("click", function () {
                 openPhotoModal(selectedAlbum, photo.id);
               });
-              
+
               albumGrid.appendChild(photoElement);
             });
-            
+
             // Show album view, hide gallery container
-            albumView.classList.add('active');
-            galleryContainer.style.display = 'none';
-            document.querySelector('.pagination').style.display = 'none';
+            albumView.classList.add("active");
+            galleryContainer.style.display = "none";
+            document.querySelector(".pagination").style.display = "none";
           }
         });
       });
 
       // Back to albums button
-      backToAlbumsBtn.addEventListener('click', function() {
-        albumView.classList.remove('active');
-        galleryContainer.style.display = 'grid';
-        document.querySelector('.pagination').style.display = 'flex';
+      backToAlbumsBtn.addEventListener("click", function () {
+        albumView.classList.remove("active");
+        galleryContainer.style.display = "grid";
+        document.querySelector(".pagination").style.display = "flex";
       });
 
       // Photo modal functionality
-      const photoModal = document.getElementById('photoModal');
-      const modalImg = document.getElementById('modalImg');
-      const modalCaption = document.getElementById('modalCaption');
-      const modalClose = document.getElementById('modalClose');
-      const modalPrev = document.getElementById('modalPrev');
-      const modalNext = document.getElementById('modalNext');
-      const modalCounter = document.getElementById('modalCounter');
+      const photoModal = document.getElementById("photoModal");
+      const modalImg = document.getElementById("modalImg");
+      const modalCaption = document.getElementById("modalCaption");
+      const modalClose = document.getElementById("modalClose");
+      const modalPrev = document.getElementById("modalPrev");
+      const modalNext = document.getElementById("modalNext");
+      const modalCounter = document.getElementById("modalCounter");
 
       let currentAlbum = null;
       let currentPhotoIndex = 0;
 
       function openPhotoModal(album, photoId) {
         currentAlbum = album;
-        currentPhotoIndex = album.photos.findIndex(photo => photo.id === photoId);
+        currentPhotoIndex = album.photos.findIndex(
+          (photo) => photo.id === photoId
+        );
         updateModalContent();
-        photoModal.classList.add('active');
+        photoModal.classList.add("active");
       }
 
       function updateModalContent() {
@@ -1758,58 +1964,119 @@
         modalImg.src = photo.src;
         modalImg.alt = photo.title;
         modalCaption.innerHTML = `<h4>${photo.title}</h4><p>${photo.description}</p>`;
-        modalCounter.textContent = `${currentPhotoIndex + 1} / ${currentAlbum.photos.length}`;
+        modalCounter.textContent = `${currentPhotoIndex + 1} / ${
+          currentAlbum.photos.length
+        }`;
       }
 
-      modalClose.addEventListener('click', function() {
-        photoModal.classList.remove('active');
+      modalClose.addEventListener("click", function () {
+        photoModal.classList.remove("active");
       });
 
-      modalPrev.addEventListener('click', function() {
-        currentPhotoIndex = (currentPhotoIndex - 1 + currentAlbum.photos.length) % currentAlbum.photos.length;
+      modalPrev.addEventListener("click", function () {
+        currentPhotoIndex =
+          (currentPhotoIndex - 1 + currentAlbum.photos.length) %
+          currentAlbum.photos.length;
         updateModalContent();
       });
 
-      modalNext.addEventListener('click', function() {
-        currentPhotoIndex = (currentPhotoIndex + 1) % currentAlbum.photos.length;
+      modalNext.addEventListener("click", function () {
+        currentPhotoIndex =
+          (currentPhotoIndex + 1) % currentAlbum.photos.length;
         updateModalContent();
       });
 
       // Close modal when clicking outside
-      photoModal.addEventListener('click', function(e) {
+      photoModal.addEventListener("click", function (e) {
         if (e.target === photoModal) {
-          photoModal.classList.remove('active');
+          photoModal.classList.remove("active");
         }
       });
 
       // Keyboard navigation for modal
-      document.addEventListener('keydown', function(e) {
-        if (!photoModal.classList.contains('active')) return;
-        
-        if (e.key === 'Escape') {
-          photoModal.classList.remove('active');
-        } else if (e.key === 'ArrowLeft') {
+      document.addEventListener("keydown", function (e) {
+        if (!photoModal.classList.contains("active")) return;
+
+        if (e.key === "Escape") {
+          photoModal.classList.remove("active");
+        } else if (e.key === "ArrowLeft") {
           modalPrev.click();
-        } else if (e.key === 'ArrowRight') {
+        } else if (e.key === "ArrowRight") {
           modalNext.click();
         }
       });
 
+      document.addEventListener("DOMContentLoaded", function () {
+  const galleryAlbums = document.querySelectorAll(".gallery-album");
+
+  galleryAlbums.forEach(album => {
+    const albumId = parseInt(album.getAttribute("data-album-id"));
+    const albumData = albumsData.find(a => a.id === albumId);
+
+    if (albumData && albumData.photos.length > 0) {
+      const imgElement = album.querySelector("img");
+      if (imgElement) {
+        imgElement.src = albumData.photos[0].src; // Menggunakan foto pertama dari album
+        imgElement.alt = albumData.photos[0].title; // Menetapkan judul sebagai alt text
+      }
+
+      // Tambahkan elemen untuk judul album
+      const titleElement = document.createElement("div");
+      titleElement.className = "album-title";
+      titleElement.textContent = albumData.title; // Menampilkan judul album
+      album.appendChild(titleElement);
+    }
+  });
+});
+
+
       // Back to top functionality
-      const backToTopBtn = document.querySelector('.back-to-top');
-      
-      window.addEventListener('scroll', function() {
+      const backToTopBtn = document.querySelector(".back-to-top");
+
+      window.addEventListener("scroll", function () {
         if (window.pageYOffset > 300) {
-          backToTopBtn.classList.add('active');
+          backToTopBtn.classList.add("active");
         } else {
-          backToTopBtn.classList.remove('active');
+          backToTopBtn.classList.remove("active");
         }
       });
-      
-      backToTopBtn.addEventListener('click', function(e) {
+
+      backToTopBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
+      document.addEventListener("DOMContentLoaded", function () {
+        const galleryAlbums = document.querySelectorAll(".gallery-album");
+
+        galleryAlbums.forEach((album) => {
+          const albumId = parseInt(album.getAttribute("data-album-id"));
+          const albumData = albumsData.find((a) => a.id === albumId);
+
+          if (albumData) {
+            const countSpan = album.querySelector(".album-count");
+            if (countSpan) {
+              countSpan.innerHTML = `<i class="fas fa-image"></i> ${albumData.photos.length} Foto`;
+            }
+          }
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+  const galleryAlbums = document.querySelectorAll(".gallery-album");
+
+  galleryAlbums.forEach(album => {
+    const albumId = parseInt(album.getAttribute("data-album-id"));
+    const albumData = albumsData.find(a => a.id === albumId);
+
+    if (albumData && albumData.photos.length > 0) {
+      const imgElement = album.querySelector("img");
+      if (imgElement) {
+        imgElement.src = albumData.photos[0].src; // Menggunakan foto pertama dari album
+        imgElement.alt = albumData.photos[0].title; // Menetapkan judul sebagai alt text
+      }
+    }
+  });
+});
+
     </script>
   </body>
 </html>
