@@ -162,25 +162,24 @@
       }
 
       .page-link {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background-color: white;
-        color: var(--primary);
-        border: 2px solid var(--primary);
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
 
-      .page-link.active,
-      .page-link:hover {
-        background-color: var(--primary);
-        color: white;
-      }
+.page-link.active, .page-link:hover {
+  background-color: var(--primary);
+  color: white;
+}
 
       /* Lightbox styles */
       .lightbox {
@@ -2359,6 +2358,96 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const galleryContainer = document.getElementById("galleryContainer");
+  const paginationContainer = document.querySelector(".pagination");
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const galleryAlbums = document.querySelectorAll(".gallery-album");
+  const albumsPerPage = 6; // Jumlah album per halaman
+  let currentPage = 1;
+  let currentFilter = "all"; // Filter default
+
+  function displayAlbums(page) {
+    let filteredAlbums = Array.from(galleryAlbums).filter(album => {
+      let category = album.getAttribute("data-category");
+      return currentFilter === "all" || category === currentFilter;
+    });
+
+    const totalAlbums = filteredAlbums.length;
+    const totalPages = Math.ceil(totalAlbums / albumsPerPage);
+
+    // Tampilkan hanya album yang sesuai dengan halaman aktif
+    filteredAlbums.forEach((album, index) => {
+      album.style.display =
+        index >= (page - 1) * albumsPerPage && index < page * albumsPerPage
+          ? "block"
+          : "none";
+    });
+
+    // Jika hanya ada 1 halaman, sembunyikan pagination
+    paginationContainer.innerHTML = "";
+    if (totalPages > 1) {
+      for (let i = 1; i <= totalPages; i++) {
+        let pageButton = document.createElement("a");
+        pageButton.href = "#";
+        pageButton.classList.add("page-link");
+        pageButton.textContent = i;
+        if (i === page) {
+          pageButton.classList.add("active");
+        }
+        pageButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          currentPage = i;
+          displayAlbums(currentPage);
+          scrollToAlbums(); // Scroll ke atas setelah pindah halaman
+        });
+        paginationContainer.appendChild(pageButton);
+      }
+
+      // Tambahkan tombol "Next" jika lebih dari 1 halaman
+      if (totalPages > 1 && currentPage < totalPages) {
+        let nextButton = document.createElement("a");
+        nextButton.href = "#";
+        nextButton.classList.add("page-link");
+        nextButton.innerHTML = `<i class="fas fa-angle-right"></i>`;
+        nextButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (currentPage < totalPages) {
+            currentPage++;
+            displayAlbums(currentPage);
+            scrollToAlbums(); // Scroll ke atas setelah pindah halaman
+          }
+        });
+        paginationContainer.appendChild(nextButton);
+      }
+    }
+  }
+
+  function scrollToAlbums() {
+    window.scrollTo({
+      top: galleryContainer.offsetTop - 50, // Scroll ke atas album
+      behavior: "smooth",
+    });
+  }
+
+  // Event Listener untuk Filter
+  filterButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      this.classList.add("active");
+      currentFilter = this.getAttribute("data-filter");
+      currentPage = 1; // Reset ke halaman pertama setelah filter diterapkan
+      displayAlbums(currentPage);
+    });
+  });
+
+  // Panggil fungsi untuk pertama kali
+  displayAlbums(currentPage);
+});
+
+
+
 
 
     </script>
