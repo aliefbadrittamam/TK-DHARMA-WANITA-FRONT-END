@@ -1,7 +1,12 @@
 {
     "rewrites": [
+      { "source": "/index", "destination": "/index.html" },
       { "source": "/profil", "destination": "/profil.html" },
-      { "source": "/contact", "destination": "/contact.html" }
+      { "source": "/profil-guru", "destination": "/profil-guru.html" },
+      { "source": "/fasilitas", "destination": "/fasilitas.html" },
+      { "source": "/pengumuman", "destination": "/pengumuman.html" },
+      { "source": "/galeri", "destination": "/galeri.html" },
+      { "source": "/kontak", "destination": "/kontak.html" },
+      { "source": "/", "destination": "/index.html" }
     ]
   }
-  
