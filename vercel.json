@@ -1,0 +1,7 @@
+{
+    "rewrites": [
+      { "source": "/profil", "destination": "/profil.html" },
+      { "source": "/contact", "destination": "/contact.html" }
+    ]
+  }
+  
